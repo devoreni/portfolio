@@ -1,0 +1,10 @@
+---
+title: Nathan DeVore - Personal Computer Science Portfolio
+date: last-modified
+author: Nathan DeVore
+format:
+    html:
+        theme: Cyborg
+        toc: true
+        embed-resources: true
+---
