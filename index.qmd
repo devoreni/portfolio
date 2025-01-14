@@ -4,7 +4,8 @@ date: last-modified
 author: Nathan DeVore
 format:
     html:
-        theme: Cyborg
+        theme: Sandstone
         toc: true
         embed-resources: true
 ---
+This is my (Nathan DeVore) software portfolio. It consists of personal independant projects I undertook to practice and further enhance my ability to code and develop software. Below are clickable buttons to take you to more in depth descriptions of projects. This web page's URL is https://devoreni.github.io/portfolio/
