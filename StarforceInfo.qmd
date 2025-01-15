@@ -1,0 +1,10 @@
+---
+title: Optimal Efficiency Starforce Calculator for Maplestory
+date: last-modified
+author: Nathan DeVore
+format:
+    html:
+        theme: Sandstone
+        toc: true
+        embed-resources: true
+---
