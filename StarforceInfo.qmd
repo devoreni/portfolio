@@ -8,3 +8,5 @@ format:
         toc: true
         embed-resources: true
 ---
+
+<https://devoreni.github.io/portfolio/>
