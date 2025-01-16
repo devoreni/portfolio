@@ -19,48 +19,26 @@ Starforce is a system used in the game MapleStory to enhance equipment (like wea
 ## The Basics of Starforce Enhancement:
 * Starting Point: Items begin with 0 stars.
 * Goal: Players aim to add stars, up to a maximum of 25.
-* Costs: Each attempt costs mesos (the game's currency). The higher the star count, the more expensive it gets.
+* Costs: Each attempt costs mesos (the game's currency). Higher item level and star count increase the cost.
 * Success, Fail, or Break:
-* Success: The item gains a star.
-* Failure: The attempt fails, and sometimes the item loses a star.
-* Destruction: At certain star levels, failure destroys the item unless special protections are used (which cost even more mesos).
-* What Makes Calculating the Cost Complex?
-* The cost of enhancing an item with Starforce isn't straightforward due to several factors:
+    + Success: The item gains a star.
+    + Failure: The attempt fails, and sometimes the item loses a star.
+    + Destruction: At certain star levels, failure destroys the item unless special protections are used (which cost even more mesos).
 
-## Chance of Success
+## Cost Complexity
+Starforcing is extremely complex and cannot be fully explained for the sake of brevity. If you wish to read more about the starforce system you can do so [here.](https://strategywiki.org/wiki/MapleStory/Spell_Trace_and_Star_Force) The current best solution people had to understanding how much it would cost to upgrade their item is by using an online calculator that will simulate their item many times and return statistics like mean and median costs, the number of destructions they can expect, etc. This is a poor solution to me for several reasons. Firstly, it takes time to run potentially thousands of simulations if you want an accurate result due to high variance. So long in some cases that there is a warning at the top of the site that the simulator may crash if you attempt to simulate items above 22 stars. Secondly, every time you will get a different result so you can only know a ballpark answer. Third, because it is so difficult to enhance above 22 stars, the simulator cannot handle it in most cases even for a single simulation so getting an evaluation is impossible.<br><br>
+I set out to solve all three of these issues. I wanted my calculator to run quickly, be 100% accurate and return the same answer every time, and have the ability to calculate all star counts no matter what.
 
-### Each star level has a specific success rate, which decreases as the star count increases. For example:
-* Low stars (1–10): High success rate.
-* Mid stars (11–15): Medium success rate.
-* High stars (16–20+): Very low success rate.
-
-### Failure Penalties: Failing at certain levels can:
-* Reduce the star count (requiring re-enhancement).
-* Destroy the item entirely (forcing a restart with a new item).
-* Mesos Cost Scaling: The mesos cost for each attempt depends on the item's base stats and current star level. Costs rise exponentially at higher stars.
-### Safeguards and Buffs: Players can use optional tools to:
-* Prevent destruction (at extra cost).
-* Temporarily increase success rates (with game events or items).
-* Randomness: Since outcomes are based on probabilities, the actual cost depends on how lucky or unlucky the player is.
-### Example: Enhancing to 16 Stars (Using Your Berserked as an Example)
-* Starting Cost: To attempt an upgrade to 16 stars, the cost might be 100 million mesos per attempt (example value; actual cost depends on item stats).
-* Probability: Let’s say the success rate at 15→16 is 30%.
-* Failures: If the attempt fails, the item drops to 14 stars, so you must redo 14→15 (with its own costs and probabilities) before retrying 15→16.
-* Risk of Destruction: Failing at 15→16 could also destroy the item, requiring you to buy a new one and start over.
-
-![](16StarBerserked.png)
-
-## What am I trying to solve for?
-To calculate the total expected cost of enhancing an item, your calculator must consider:
-
-All possible outcomes (success, failure, destruction).
-The cost of each attempt (varies by star level).
-Probabilities of success and failure.
-Costs of safeguards and recovery if used.
+![](assets/16StarBerserked.png)
 
 # Solution
+After a month of working on this single project I was able to come up with a solution that made heavy use of mathematic, statistical, and computer science techniques. I first had to come up with a way to represent every possiblity in a recursive equation because infinite loops are possible. Next I had to simpllify, reduce, and solve that equation for the expected cost of getting to the next star which previously was a function of itself. The, I had to use dynamic programming to solve from the bottom up from star 0 to account for item destructions. Lastly I summed the costs from the starting star to desired star, and made everything presentable with a GUI.
+
+![](assets/CalculatorScreenshot.png)
 
 # Results
+
+
 
 # Possible Next Steps
 
