@@ -1,0 +1,12 @@
+---
+title: Automated Video Game Bot
+date: last-modified
+author: Nathan DeVore
+format:
+    html:
+        theme: Sandstone
+        toc: true
+        embed-resources: true
+---
+
+<https://devoreni.github.io/portfolio/>

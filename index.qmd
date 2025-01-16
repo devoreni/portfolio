@@ -56,4 +56,9 @@ This holistic approach to education has equipped me with a diverse and versatile
     <img src="assets/Berserked.png" alt="Starforce Calculator" class="project-image">
     <h3 class="project-title">Starforce Calculator</h3>
 </a>
+
+<a href="https://devoreni.github.io/portfolio/CommerciBot" class="project-tile">
+    <img src="assets/Sweetwater_pendant.png" alt="Automated Videogame Bot" class="project-image">
+    <h3 class="project-title">Automated Videogame Bot</h3>
+</a>
 ```
