@@ -9,4 +9,59 @@ format:
         embed-resources: true
 ---
 
-<https://devoreni.github.io/portfolio/>
+Back to Portfolio: <https://devoreni.github.io/portfolio/>
+
+# Background
+
+## What is Starforce?
+Starforce is a system used in the game MapleStory to enhance equipment (like weapons and armor) by adding stars to them. Each star increases the item's stats, making it stronger. However, the process of enhancing with Starforce is risky, costly, and influenced by many factors.
+
+## The Basics of Starforce Enhancement:
+* Starting Point: Items begin with 0 stars.
+* Goal: Players aim to add stars, up to a maximum of 25.
+* Costs: Each attempt costs mesos (the game's currency). The higher the star count, the more expensive it gets.
+* Success, Fail, or Break:
+* Success: The item gains a star.
+* Failure: The attempt fails, and sometimes the item loses a star.
+* Destruction: At certain star levels, failure destroys the item unless special protections are used (which cost even more mesos).
+* What Makes Calculating the Cost Complex?
+* The cost of enhancing an item with Starforce isn't straightforward due to several factors:
+
+## Chance of Success
+
+### Each star level has a specific success rate, which decreases as the star count increases. For example:
+* Low stars (1–10): High success rate.
+* Mid stars (11–15): Medium success rate.
+* High stars (16–20+): Very low success rate.
+
+### Failure Penalties: Failing at certain levels can:
+* Reduce the star count (requiring re-enhancement).
+* Destroy the item entirely (forcing a restart with a new item).
+* Mesos Cost Scaling: The mesos cost for each attempt depends on the item's base stats and current star level. Costs rise exponentially at higher stars.
+### Safeguards and Buffs: Players can use optional tools to:
+* Prevent destruction (at extra cost).
+* Temporarily increase success rates (with game events or items).
+* Randomness: Since outcomes are based on probabilities, the actual cost depends on how lucky or unlucky the player is.
+### Example: Enhancing to 16 Stars (Using Your Berserked as an Example)
+* Starting Cost: To attempt an upgrade to 16 stars, the cost might be 100 million mesos per attempt (example value; actual cost depends on item stats).
+* Probability: Let’s say the success rate at 15→16 is 30%.
+* Failures: If the attempt fails, the item drops to 14 stars, so you must redo 14→15 (with its own costs and probabilities) before retrying 15→16.
+* Risk of Destruction: Failing at 15→16 could also destroy the item, requiring you to buy a new one and start over.
+
+![](16StarBerserked.png)
+
+## What am I trying to solve for?
+To calculate the total expected cost of enhancing an item, your calculator must consider:
+
+All possible outcomes (success, failure, destruction).
+The cost of each attempt (varies by star level).
+Probabilities of success and failure.
+Costs of safeguards and recovery if used.
+
+# Solution
+
+# Results
+
+# Possible Next Steps
+
+# Lessons

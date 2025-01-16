@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nathan DeVore">
-<meta name="dcterms.date" content="2025-01-15">
+<meta name="dcterms.date" content="2025-01-16">
 
 <title>Optimal Efficiency Starforce Calculator for Maplestory</title>
 <style>
@@ -2987,7 +2987,27 @@ vertical-align: -.125em;
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#what-is-starforce" id="toc-what-is-starforce" class="nav-link" data-scroll-target="#what-is-starforce">What is Starforce?</a></li>
+  <li><a href="#the-basics-of-starforce-enhancement" id="toc-the-basics-of-starforce-enhancement" class="nav-link" data-scroll-target="#the-basics-of-starforce-enhancement">The Basics of Starforce Enhancement:</a></li>
+  <li><a href="#chance-of-success" id="toc-chance-of-success" class="nav-link" data-scroll-target="#chance-of-success">Chance of Success</a>
+  <ul class="collapse">
+  <li><a href="#each-star-level-has-a-specific-success-rate-which-decreases-as-the-star-count-increases.-for-example" id="toc-each-star-level-has-a-specific-success-rate-which-decreases-as-the-star-count-increases.-for-example" class="nav-link" data-scroll-target="#each-star-level-has-a-specific-success-rate-which-decreases-as-the-star-count-increases.-for-example">Each star level has a specific success rate, which decreases as the star count increases. For example:</a></li>
+  <li><a href="#failure-penalties-failing-at-certain-levels-can" id="toc-failure-penalties-failing-at-certain-levels-can" class="nav-link" data-scroll-target="#failure-penalties-failing-at-certain-levels-can">Failure Penalties: Failing at certain levels can:</a></li>
+  </ul></li>
+  <li><a href="#what-am-i-trying-to-solve-for" id="toc-what-am-i-trying-to-solve-for" class="nav-link" data-scroll-target="#what-am-i-trying-to-solve-for">What am I trying to solve for?</a></li>
+  </ul></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#possible-next-steps" id="toc-possible-next-steps" class="nav-link" data-scroll-target="#possible-next-steps">Possible Next Steps</a></li>
+  <li><a href="#lessons" id="toc-lessons" class="nav-link" data-scroll-target="#lessons">Lessons</a></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -3010,7 +3030,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 15, 2025</p>
+      <p class="date">January 16, 2025</p>
     </div>
   </div>
   
@@ -3020,7 +3040,72 @@ vertical-align: -.125em;
 
 </header>
 
-<p><a href="https://devoreni.github.io/portfolio/" class="uri">https://devoreni.github.io/portfolio/</a></p>
+<p>Back to Portfolio: <a href="https://devoreni.github.io/portfolio/" class="uri">https://devoreni.github.io/portfolio/</a></p>
+<section id="background" class="level1">
+<h1>Background</h1>
+<section id="what-is-starforce" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-starforce">What is Starforce?</h2>
+<p>Starforce is a system used in the game MapleStory to enhance equipment (like weapons and armor) by adding stars to them. Each star increases the item’s stats, making it stronger. However, the process of enhancing with Starforce is risky, costly, and influenced by many factors.</p>
+</section>
+<section id="the-basics-of-starforce-enhancement" class="level2">
+<h2 class="anchored" data-anchor-id="the-basics-of-starforce-enhancement">The Basics of Starforce Enhancement:</h2>
+<ul>
+<li>Starting Point: Items begin with 0 stars.</li>
+<li>Goal: Players aim to add stars, up to a maximum of 25.</li>
+<li>Costs: Each attempt costs mesos (the game’s currency). The higher the star count, the more expensive it gets.</li>
+<li>Success, Fail, or Break:</li>
+<li>Success: The item gains a star.</li>
+<li>Failure: The attempt fails, and sometimes the item loses a star.</li>
+<li>Destruction: At certain star levels, failure destroys the item unless special protections are used (which cost even more mesos).</li>
+<li>What Makes Calculating the Cost Complex?</li>
+<li>The cost of enhancing an item with Starforce isn’t straightforward due to several factors:</li>
+</ul>
+</section>
+<section id="chance-of-success" class="level2">
+<h2 class="anchored" data-anchor-id="chance-of-success">Chance of Success</h2>
+<section id="each-star-level-has-a-specific-success-rate-which-decreases-as-the-star-count-increases.-for-example" class="level3">
+<h3 class="anchored" data-anchor-id="each-star-level-has-a-specific-success-rate-which-decreases-as-the-star-count-increases.-for-example">Each star level has a specific success rate, which decreases as the star count increases. For example:</h3>
+<ul>
+<li>Low stars (1–10): High success rate.</li>
+<li>Mid stars (11–15): Medium success rate.</li>
+<li>High stars (16–20+): Very low success rate.</li>
+</ul>
+</section>
+<section id="failure-penalties-failing-at-certain-levels-can" class="level3">
+<h3 class="anchored" data-anchor-id="failure-penalties-failing-at-certain-levels-can">Failure Penalties: Failing at certain levels can:</h3>
+<ul>
+<li>Reduce the star count (requiring re-enhancement).</li>
+<li>Destroy the item entirely (forcing a restart with a new item).</li>
+<li>Mesos Cost Scaling: The mesos cost for each attempt depends on the item’s base stats and current star level. Costs rise exponentially at higher stars. ### Safeguards and Buffs: Players can use optional tools to:</li>
+<li>Prevent destruction (at extra cost).</li>
+<li>Temporarily increase success rates (with game events or items).</li>
+<li>Randomness: Since outcomes are based on probabilities, the actual cost depends on how lucky or unlucky the player is. ### Example: Enhancing to 16 Stars (Using Your Berserked as an Example)</li>
+<li>Starting Cost: To attempt an upgrade to 16 stars, the cost might be 100 million mesos per attempt (example value; actual cost depends on item stats).</li>
+<li>Probability: Let’s say the success rate at 15→16 is 30%.</li>
+<li>Failures: If the attempt fails, the item drops to 14 stars, so you must redo 14→15 (with its own costs and probabilities) before retrying 15→16.</li>
+<li>Risk of Destruction: Failing at 15→16 could also destroy the item, requiring you to buy a new one and start over.</li>
+</ul>
+<p><img src="16StarBerserked.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="what-am-i-trying-to-solve-for" class="level2">
+<h2 class="anchored" data-anchor-id="what-am-i-trying-to-solve-for">What am I trying to solve for?</h2>
+<p>To calculate the total expected cost of enhancing an item, your calculator must consider:</p>
+<p>All possible outcomes (success, failure, destruction). The cost of each attempt (varies by star level). Probabilities of success and failure. Costs of safeguards and recovery if used.</p>
+</section>
+</section>
+<section id="solution" class="level1">
+<h1>Solution</h1>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+</section>
+<section id="possible-next-steps" class="level1">
+<h1>Possible Next Steps</h1>
+</section>
+<section id="lessons" class="level1">
+<h1>Lessons</h1>
+</section>
 
 </main>
 <!-- /main column -->
