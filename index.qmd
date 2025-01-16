@@ -4,13 +4,11 @@ date: last-modified
 author: Nathan DeVore
 format:
     html:
-        include-html: true
         theme: Sandstone
         toc: true
         embed-resources: true
 ---
 This web page's URL: <https://devoreni.github.io/portfolio/>
-
 
 # Bio
 I am a Computer Science major at Virginia Commonwealth University (VCU) with a concentration in Software Engineering and minors in Mathematics and Physics (graduating May 2025). My passion for learning new and challenging concepts has driven me to develop talents across various fields. Ultimately, I chose to specialize in Computer Science because it allows me to combine creativity with problem-solving while engaging with a dynamic and ever-evolving discipline.<br><br>
@@ -19,8 +17,43 @@ This holistic approach to education has equipped me with a diverse and versatile
 
 # Resume
 
-
 # Projects
 
+<style>
+.project-tile {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: white;
+}
 
+.project-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
+.project-image {
+    width: 64px;  /* Reduced from 200px */
+    height: auto;
+    margin-right: 20px;
+}
+
+.project-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+</style>
+
+```{=html}
+<a href="https://devoreni.github.io/portfolio/StarforceInfo" class="project-tile">
+    <img src="assets/Berserked.png" alt="Starforce Calculator" class="project-image">
+    <h3 class="project-title">Starforce Calculator</h3>
+</a>
+```
