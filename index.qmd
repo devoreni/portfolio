@@ -61,4 +61,9 @@ This holistic approach to education has equipped me with a diverse and versatile
     <img src="assets/Sweetwater_pendant.png" alt="Automated Videogame Bot" class="project-image">
     <h3 class="project-title">Automated Videogame Bot</h3>
 </a>
+
+<a href="https://devoreni.github.io/portfolio/PortfolioProject" class="project-tile">
+    <img src="assets/QuartoLogo.png" alt="Hand-Crafted Portfolio" class="project-image">
+    <h3 class="project-title">Hand-Crafted Portfolio</h3>
+</a>
 ```
