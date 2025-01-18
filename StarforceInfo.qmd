@@ -129,6 +129,6 @@ The table below compares the time required for a single simulation versus my pro
 | 24          | 270                  | 0.20                  |
 | 25          | 30,000               | 0.26                  |
 
-Simulations for statistical accuracy require 15,000 samples, further highlighting the efficiency of my program.
+Simulations for statistical accuracy generally require 15,000 samples due to the high variance of starforcing, further highlighting the efficiency of my program.
 
 You can find detailed instructions in the [GitHub README](https://github.com/devoreni/Theoretical-SF-cost-calculator), along with a downloadable `.exe` file. The source code is well-documented for those interested in exploring the implementation.
