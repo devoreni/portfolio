@@ -26,13 +26,59 @@ Starforce is a system used in the game MapleStory to enhance equipment (like wea
     + Destruction: At certain star levels, failure destroys the item unless special protections are used (which cost even more mesos).
 
 ## Cost Complexity
-Starforcing is extremely complex and cannot be fully explained for the sake of brevity. If you wish to read more about the starforce system you can do so [here.](https://strategywiki.org/wiki/MapleStory/Spell_Trace_and_Star_Force) The current best solution people had to understanding how much it would cost to upgrade their item is by using an online calculator that will simulate their item many times and return statistics like mean and median costs, the number of destructions they can expect, etc. This is a poor solution to me for several reasons. Firstly, it takes time to run potentially thousands of simulations if you want an accurate result due to high variance. So long in some cases that there is a warning at the top of the site that the simulator may crash if you attempt to simulate items above 22 stars. Secondly, every time you will get a different result so you can only know a ballpark answer. Third, because it is so difficult to enhance above 22 stars, the simulator cannot handle it in most cases even for a single simulation so getting an evaluation is impossible.<br><br>
-I set out to solve all three of these issues. I wanted my calculator to run quickly, be 100% accurate and return the same answer every time, and have the ability to calculate all star counts no matter what.
+The complexity comes from several places within the system that I would need to solve; the main ones being:<br>
+
+* Destruction of an item reduces your star count to 12 and costs another of the same item to restore it
+* Success, failure, and destruction odds which are affected by
+    + Star catching which increases success odds and decreases the fail outcomes proportionatly
+    + 5/10/15 events which guarentee success at the fifth, tenth, and fifteenth star
+    + "safe" stars at 15 and 20 which prevent dropping of star count (but not destruction chance)
+    + chance time which guarentees success a single time if you failed and dropped star count twice in a row without destruction
+    + safeguarding (effect) which removes destruction chance at the 15th and 16th star
+* The enhancement cost of the item which is affected by
+    + item level and current star count which determine base cost.
+    + mvp bonus which reduces the enhancement cost by a percentage of the base cost depending on how much real money the player has spent in the store 
+    + 30% off events which reduces the enhancement cost by 30% of the base cost
+    + safeguarding (cost) which adds the full base cost to the enhancement cost
+* +2 stars event which gives you an extra star for free when at or below 10 stars
+If you wish to read more about the starforce system you can do so [here.](https://strategywiki.org/wiki/MapleStory/Spell_Trace_and_Star_Force)<br>
 
 ![](assets/16StarBerserked.png)
 
+ The best solution people had to get any kind of understanding of how much it would cost to upgrade their item was by using an online calculator that simulates their item many times and return statistics like mean and median costs, the number of destructions they can expect, etc. This is a poor solution to me for several reasons. Firstly, it takes time to run potentially thousands of simulations if you want an accurate result due to high variance. So long in some cases that there is a warning at the top of the site that the simulator may crash if you attempt to simulate items above 22 stars. Secondly, every time you will get a different result so you can only know a ballpark answer. Third, because it is so difficult to enhance above 22 stars, the simulator cannot handle it in most cases even for a single simulation so getting an evaluation is impossible.<br><br>
+I set out to solve all three of these issues. I wanted my calculator to run quickly, be 100% accurate and return the same answer every time, and have the ability to calculate all star counts no matter what.
+
+
+
 # Solution
-After a month of working on this single project I was able to come up with a solution that made heavy use of mathematic, statistical, and computer science techniques. I first had to come up with a way to represent every possiblity in a recursive equation because infinite loops are possible. Next I had to simpllify, reduce, and solve that equation for the expected cost of getting to the next star which previously was a function of itself. The, I had to use dynamic programming to solve from the bottom up from star 0 to account for item destructions. Lastly I summed the costs from the starting star to desired star, and made everything presentable with a GUI.
+
+After a month of working on this single project I was able to come up with a solution that made heavy use of mathematic, statistical, and computer science techniques.
+
+## Destruction
+Because there is a chance of destruction, every star where destruction is possible includes some amount of the cost of all of the starts between there and 12 due to the star count being reduced to 12 on destruction. To solve this problem I took a bottom up dynamic programming approach where I start from the lowest possible star reachable (0-12 depending on what the starting star was and if destruction is possible).  
+
+## Enhancement Cost Calculation
+Although the actual process of calculating the enhancement cost is slightly more complex than described, the gist is as follows.
+$$
+c = b * (M + s)
+$$
+where c is the enhancement cost, b is the base cost determined with the base cost formula (found in the strategy guide), M is the discount equation (below), and s is 0 if there was no safeguarding and 1 if the player chose to safeguard. Discount equation M:
+$$
+M = 1 - t - m
+$$
+where t is .3 if 30% off event is active and m is a number between 0 and .1 depending on mvp bonus.
+
+## \+2 Star Event
+To implement this, all I had to do was increment the current star by 1 and skipping cost calculation for the next star if the current star was less than or equal to 10.
+
+## Calculating Expected Cost
+This is where the real meat of the project is. First I needed to come up with an equation to represent the expected cost of reaching the next star from any star. Creating the equation came down to adding the cost of every possible outcome from that star multiplied by the odds of that specific outcome, all divided by the probability of success. Though there are multiple expected cost equations, the most general, simplified equation as an example is
+$$
+E_{n+1} = (c_{n} + f_{k_{n}}*c_{n-1} + f_{k_{n}}*f_{k_{n-1}} * (c_{n-2}+E_n) + (f_{k_{n}} + f_{k_{n-1}} + f_{d_{n}}) * \sum_{i=13}^{n+1}E_{i})/s
+$$
+Where E is the expected cost of the n^th^ star, c is calculated from the equation (1), f~k~ is the probability of failure and decreasing a star, f~d~ is the probability of failure resulting is destruction, and s is the success chance calculated after taking into account all of the events and star specific probabilities.
+
+## Calculating Expected number of Destructions
 
 ![](assets/CalculatorScreenshot.png)
 
