@@ -9,4 +9,80 @@ format:
         embed-resources: true
 ---
 
-<https://devoreni.github.io/portfolio/>
+Back to Portfolio: <https://devoreni.github.io/portfolio/>
+
+# Background
+
+## The Challenge
+As a computer science student, I wanted to create a portfolio that showcased my programming projects while also demonstrating my ability to design, organize, and present information in a clear and professional manner. I had never built a portfolio site before and had limited knowledge of web development tools like HTML and Quarto.
+
+## Objectives
+My primary goals for this project were:
+
+- Learn the fundamentals of **HTML** to create custom elements and layout.
+- Apply design principles from a **UI/UX class** I had taken to ensure the site was both functional and visually appealing.
+- Use **Quarto** effectively for document generation and to streamline the process of managing and publishing multiple projects.
+- Host the portfolio using **GitHub Pages**.
+- Explain my projects in a way that is accessible to people who may not be familiar with programming or technical concepts.
+- Organize and manage multiple files and assets efficiently.
+
+---
+
+# The Process
+
+## Learning HTML and Creating Custom Elements
+Although Quarto simplifies much of the site-building process, I needed to customize certain elements, such as buttons and layouts, to give my portfolio a polished and personal touch. I taught myself HTML basics, experimenting with creating buttons, links, and other components. For example:
+
+- Designed custom buttons to navigate between projects.
+- Used HTML to add inline styling where necessary to enhance the visual presentation.
+
+## Applying UI/UX Principles
+Drawing on knowledge from a UI/UX course, I focused on:
+
+- **Consistency:** Ensuring that the design, colors, and fonts remained consistent across all pages.
+- **Clarity:** Organizing information into logical sections, with headings and navigation elements that made the site easy to explore.
+- **Accessibility:** Writing content and designing layouts that were user-friendly for both technical and non-technical visitors.
+
+## Using Quarto for Project Documentation
+I became more proficient with **Quarto**, a powerful tool for publishing technical content. I learned to:
+
+- Embed images and resources within my projects.
+- Use YAML front matter to define themes, table of contents, and other page settings.
+- Manage multiple `.qmd` files, ensuring they were correctly linked and formatted.
+
+## Managing Assets and Files
+The portfolio project required handling multiple files, including:
+
+- HTML and QMD files for each project.
+- Image assets for screenshots and diagrams.
+- CSS and JavaScript resources to enhance the site’s functionality.
+
+To stay organized, I:
+
+- Created a logical folder structure for all assets.
+- Used descriptive names for files to quickly identify their purpose.
+- Tested the site frequently to ensure that all links and resources loaded correctly.
+
+## Hosting with GitHub Pages
+Once the site was complete, I deployed it using **GitHub Pages**, learning the process of:
+
+- Setting up a repository for the site.
+- Configuring Quarto to publish directly to GitHub Pages.
+- Troubleshooting issues with asset paths and live previews.
+
+## Simplifying Complex Explanations
+One of the most rewarding parts of this project was writing about my other projects. I worked hard to explain technical concepts, such as multithreading and image recognition, in a way that anyone could understand. This skill—breaking down complex ideas—was particularly challenging but helped me grow as a communicator.
+
+---
+
+# Results
+
+## Key Accomplishments
+- Designed and built a functional and visually appealing portfolio in just over a week.
+- Gained practical experience with HTML, Quarto, and GitHub Pages.
+- Improved my ability to manage a multi-file project with numerous dependencies.
+- Developed clear and engaging explanations of technical projects.
+- Applied design principles from my UI/UX course to create a user-friendly site.
+
+## Final Thoughts
+This portfolio is more than just a collection of projects—it’s a testament to my ability to learn new tools quickly, solve problems creatively, and communicate technical ideas effectively. I’m proud of what I’ve accomplished and look forward to adding even more projects in the future.

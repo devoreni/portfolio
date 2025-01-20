@@ -51,7 +51,7 @@ This holistic approach to education has equipped me with a diverse and versatile
 
 ```{=html}
 <a href="https://devoreni.github.io/portfolio/StarforceInfo" class="project-tile">
-    <img src="assets/Berserked.png" alt="Starforce Calculator" class="project-image">
+    <img src="assets/BerserkedIcon.png" alt="Starforce Calculator" class="project-image">
     <h3 class="project-title">Starforce Calculator</h3>
 </a>
 
