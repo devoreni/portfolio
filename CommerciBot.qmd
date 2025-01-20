@@ -13,23 +13,61 @@ Back to Portfolio: <https://devoreni.github.io/portfolio/>
 
 # Background
 
-## Problem statement
-The massive multiplayer online video game maplestory is a free to play rpg where players build up their characters by killing hordes of monsters. While the game is free, it demands incredible amounts of time from its playerbase. Because the game features many repetative tasks, there is the oportunity for automation. Specifically, the daily quest called San Commerci. The quest requires you to sail a boat to deliver goods around the continent while defending them against pirates and sea monsters.
+## Problem Statement
+MapleStory, a massively multiplayer online role-playing game (MMORPG), offers a free-to-play experience where players develop their characters by defeating hordes of monsters. However, this progress demands a significant time investment due to repetitive tasks. One such task is the daily quest "San Commerci," which involves sailing a ship to deliver goods across the continent while defending against pirates and sea monsters.
 
-## Problems to solve
-In order to be successful, there are several parts that need solving.
+## Challenges
+To automate the "San Commerci" quest successfully, the following tasks needed to be addressed:
 
-* Accept quest from NPC
-* Plan route and stops
-* Load the shp based on merchendise available
-* Identify pirates and sea monsters and take appropriate action
-* Moniter health and mana
-* Pick up items dropped by monsters
-* Complete Quest and Accept rewards
-* Avoid bot detection
+- Accepting the quest from the NPC.
+- Planning the route and stops.
+- Loading the ship with merchandise.
+- Identifying and dispatching pirates and sea monsters.
+- Monitoring health and mana levels.
+- Collecting items dropped by defeated monsters.
+- Completing the quest and claiming rewards.
+- Avoiding bot detection mechanisms.
 
 ![Map of the Commerci Republic and Maple World](assets/MapleMap.png)
 
+---
+
 # Solution
 
+## Quest Acceptance, Route Planning, and Ship Loading
+The NPC for this quest is stationary, the shipping ports remain consistent, and the merchandise available is predictable. These factors allowed for a straightforward solution: a scripted sequence of clicks to initiate dialogue, accept the quest, set the route, and load the ship.
+
+## Enemy Identification and Combat
+Pirates and sea monsters appear randomly and must be defeated promptly. The program continuously captures screenshots at millisecond intervals to check for enemies aboard the ship. If any are detected, it executes the following actions:
+
+- Uses basic skills without cooldowns for weaker enemies.
+- Prioritizes high-damage skills for stronger foes when necessary.
+This approach ensures efficient and adaptive combat.
+
+## Health and Mana Monitoring
+Health depletion results in quest failure, while low mana prevents skill usage, risking a loss of goods to enemies. A separate thread monitors pixel values in the health and mana bars. When either drops below a threshold, the program prioritizes using potions to restore resources before continuing combat.
+
+## Item Collection
+Pirates and monsters drop loot upon defeat, providing additional rewards. After clearing a wave of enemies, the program scans the area for items, navigates the character to pick them up, and repeats until all loot is collected.
+
+## Quest Completion
+The dialogue for completing the quest varies based on the number of goods delivered. To handle this, the program rapidly progresses through the NPC’s dialogue by simulating repeated presses of the "Next" button until all text is cleared.
+
+## Avoiding Bot Detection
+Using automation tools to play the game is prohibited. To minimize detection risk:
+
+- The program simulates human-like keypresses using the `pyautogui` library instead of modifying game events directly.
+- Keypress duration and timing are randomized. This was achieved by measuring my own typing speed to calculate an average keypress duration, then introducing random variations.
+
+---
+
+# Results
+The final program fully automates the "San Commerci" quest, including starting, executing, and ending the task without human intervention. It effectively avoids detection while delivering reliable performance.
+
 ![Bot Automatically Killing a Sea Snake](assets/KillingSnake.png)
+
+### Notable Achievements
+- **Rapid Development:** This project was completed in one week during my second semester at VCU.
+- **Learning Milestones:** Despite having no prior knowledge of Python, multithreading, or image recognition, I successfully taught myself these skills within the project timeline.
+- **Efficient Implementation:** With just three months of prior Java experience, I was able to navigate a new programming language and advanced concepts to deliver a functional and efficient solution.
+
