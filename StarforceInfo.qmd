@@ -105,11 +105,18 @@ $$
 Where \( B \) represents the expected number of destructions at star \( n+1 \).
 
 ## Destruction Distribution
-Destruction likelihood follows a geometric distribution. The probability of avoiding destruction up to a given star is:
+Destruction likelihood follows a geometric distribution. The probability of avoiding destruction from one star to the next:
 $$
 P_{n+1} = \frac{s}{s + f_{d_n} + f_{k_n}f_{k_{n-1}}(1 - P_n) + f_{k_n}f_{d_{n-1}}}
 $$
-The cumulative probability helps players estimate spare items needed.
+Then, using the next formula, the cumulative probability gives the chance of no distruction from the starting to target star.
+$$
+T = \Pi_{i=j}^nP_i
+$$
+- \( j \): starting star
+- \( n \): target star
+
+Then, using probability T, players can use a geometric distribution to estimate spare items needed.
 
 ## User Interface
 To simplify use, I created a GUI with Tkinter. It allows users to input parameters and calculate results efficiently, avoiding command-line complexity.

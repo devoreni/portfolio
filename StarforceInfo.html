@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nathan DeVore">
-<meta name="dcterms.date" content="2025-01-19">
+<meta name="dcterms.date" content="2025-01-20">
 
 <title>Optimal Efficiency Starforce Calculator for Maplestory</title>
 <style>
@@ -3049,7 +3049,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 19, 2025</p>
+      <p class="date">January 20, 2025</p>
     </div>
   </div>
   
@@ -3162,9 +3162,12 @@ B_{n+1} = \frac{f_{k_n}f_{k_{n-1}}B_n + \left(1 + \sum_{i=16}^n B_i\right)f_{k_n
 </section>
 <section id="destruction-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="destruction-distribution">Destruction Distribution</h2>
-<p>Destruction likelihood follows a geometric distribution. The probability of avoiding destruction up to a given star is: <span class="math display">\[
+<p>Destruction likelihood follows a geometric distribution. The probability of avoiding destruction from one star to the next: <span class="math display">\[
 P_{n+1} = \frac{s}{s + f_{d_n} + f_{k_n}f_{k_{n-1}}(1 - P_n) + f_{k_n}f_{d_{n-1}}}
-\]</span> The cumulative probability helps players estimate spare items needed.</p>
+\]</span> Then, using the next formula, the cumulative probability gives the chance of no distruction from the starting to target star. <span class="math display">\[
+T = \Pi_{i=j}^nP_i
+\]</span> - ( j ): starting star - ( n ): target star</p>
+<p>Then, using probability T, players can use a geometric distribution to estimate spare items needed.</p>
 </section>
 <section id="user-interface" class="level2">
 <h2 class="anchored" data-anchor-id="user-interface">User Interface</h2>
