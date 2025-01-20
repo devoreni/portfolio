@@ -44,7 +44,7 @@ The system introduces several layers of complexity:
 
 For more on the Starforce system, see [this guide](https://strategywiki.org/wiki/MapleStory/Spell_Trace_and_Star_Force).
 
-![](assets/16StarBerserked.png)
+![16 Star Item in Maplestory](assets/16StarBerserked.png)
 
 ### The Problem
 Current online Starforce calculators rely on simulations that:

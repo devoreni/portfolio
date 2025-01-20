@@ -9,4 +9,27 @@ format:
         embed-resources: true
 ---
 
-<https://devoreni.github.io/portfolio/>
+Back to Portfolio: <https://devoreni.github.io/portfolio/>
+
+# Background
+
+## Problem statement
+The massive multiplayer online video game maplestory is a free to play rpg where players build up their characters by killing hordes of monsters. While the game is free, it demands incredible amounts of time from its playerbase. Because the game features many repetative tasks, there is the oportunity for automation. Specifically, the daily quest called San Commerci. The quest requires you to sail a boat to deliver goods around the continent while defending them against pirates and sea monsters.
+
+## Problems to solve
+In order to be successful, there are several parts that need solving.
+
+* Accept quest from NPC
+* Plan route and stops
+* Load the shp based on merchendise available
+* Identify pirates and sea monsters and take appropriate action
+* Moniter health and mana
+* Pick up items dropped by monsters
+* Complete Quest and Accept rewards
+* Avoid bot detection
+
+![Map of the Commerci Republic and Maple World](assets/MapleMap.png)
+
+# Solution
+
+![Bot Automatically Killing a Sea Snake](assets/KillingSnake.png)
