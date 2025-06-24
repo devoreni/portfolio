@@ -48,6 +48,7 @@ For more on the Starforce system, see [this guide](https://strategywiki.org/wiki
 
 ### The Problem
 Current online Starforce calculators rely on simulations that:
+
 1. Take significant time, especially for higher star counts.
 2. Produce variable results, offering only rough estimates.
 3. Struggle with stars above 22 due to extreme difficulty and variance.

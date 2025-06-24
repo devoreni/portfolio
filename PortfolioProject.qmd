@@ -9,8 +9,8 @@ format:
         embed-resources: true
 ---
 
-Back to Portfolio: <https://devoreni.github.io/portfolio/>
-Github Project Link: <https://github.com/devoreni/portfolio>
+Back to Portfolio: <https://devoreni.github.io/portfolio/><br>
+GitHub Project Link: <https://github.com/devoreni/portfolio>
 
 # Background
 
