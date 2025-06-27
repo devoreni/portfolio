@@ -28,7 +28,7 @@ To automate the "San Commerci" quest successfully, the following tasks needed to
 - Completing the quest and claiming rewards.
 - Avoiding bot detection mechanisms.
 
-![Map of the Commerci Republic and Maple World](assets/MapleMap.png)
+![Map of the Commerci Republic and Maple World](assets/CommerciBotAssets/MapleMap.png)
 
 ---
 
@@ -64,7 +64,7 @@ Using automation tools to play the game is prohibited. To minimize detection ris
 # Results
 The final program fully automates the "San Commerci" quest, including starting, executing, and ending the task without human intervention. It effectively avoids detection while delivering reliable performance.
 
-![Bot Automatically Killing a Sea Snake](assets/KillingSnake.png)
+![Bot Automatically Killing a Sea Snake](assets/CommerciBotAssets/KillingSnake.png)
 
 ### Notable Achievements
 - **Rapid Development:** This project was completed in one week during my second semester at VCU.

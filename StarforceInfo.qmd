@@ -44,7 +44,7 @@ The system introduces several layers of complexity:
 
 For more on the Starforce system, see [this guide](https://strategywiki.org/wiki/MapleStory/Spell_Trace_and_Star_Force).
 
-![16 Star Item in Maplestory](assets/16StarBerserked.png)
+![16 Star Item in Maplestory](assets/StarforceInfoAssets/16StarBerserked.png)
 
 ### The Problem
 Current online Starforce calculators rely on simulations that:
@@ -125,7 +125,7 @@ To simplify use, I created a GUI with Tkinter. It allows users to input paramete
 # Results
 
 The calculator delivers precise, consistent values for costs, expected destructions, and destruction probabilities. Below is the GUI with a sample calculation:
-![](assets/CalculatorScreenshot.png)
+![](assets/StarforceInfoAssets/CalculatorScreenshot.png)
 
 ### Speed Comparison
 The table below compares the time required for a single simulation versus my program:
