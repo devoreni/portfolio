@@ -59,4 +59,8 @@ The following requirements are met by the AI Chat project:
 
 ## Rendering Pipeline
 
+### Frame Extraction
+
+### Chat Window Overlay
+
 ## Built in Log
