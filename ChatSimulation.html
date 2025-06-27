@@ -2140,8 +2140,43 @@ vertical-align: -.125em;
 <body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-  
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link" data-scroll-target="#problem-statement">Problem Statement</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#project-requirements" id="toc-project-requirements" class="nav-link" data-scroll-target="#project-requirements">Project Requirements</a></li>
+  </ul></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a>
+  <ul class="collapse">
+  <li><a href="#chatter-personalities" id="toc-chatter-personalities" class="nav-link" data-scroll-target="#chatter-personalities">Chatter Personalities</a>
+  <ul class="collapse">
+  <li><a href="#database-structure-and-normal-forms" id="toc-database-structure-and-normal-forms" class="nav-link" data-scroll-target="#database-structure-and-normal-forms">Database Structure and Normal Forms</a></li>
+  <li><a href="#username-generation" id="toc-username-generation" class="nav-link" data-scroll-target="#username-generation">Username Generation</a></li>
+  <li><a href="#personalization" id="toc-personalization" class="nav-link" data-scroll-target="#personalization">Personalization</a></li>
+  </ul></li>
+  <li><a href="#context-gathering" id="toc-context-gathering" class="nav-link" data-scroll-target="#context-gathering">Context Gathering</a>
+  <ul class="collapse">
+  <li><a href="#video-description" id="toc-video-description" class="nav-link" data-scroll-target="#video-description">Video Description</a></li>
+  <li><a href="#audio-transcription" id="toc-audio-transcription" class="nav-link" data-scroll-target="#audio-transcription">Audio Transcription</a></li>
+  <li><a href="#previous-chat-messages" id="toc-previous-chat-messages" class="nav-link" data-scroll-target="#previous-chat-messages">Previous Chat Messages</a></li>
+  </ul></li>
+  <li><a href="#user-modifications" id="toc-user-modifications" class="nav-link" data-scroll-target="#user-modifications">User Modifications</a>
+  <ul class="collapse">
+  <li><a href="#importance-of-manual-adjustments" id="toc-importance-of-manual-adjustments" class="nav-link" data-scroll-target="#importance-of-manual-adjustments">Importance of Manual Adjustments</a></li>
+  <li><a href="#transcription-editing" id="toc-transcription-editing" class="nav-link" data-scroll-target="#transcription-editing">Transcription Editing</a></li>
+  <li><a href="#chat-message-editing" id="toc-chat-message-editing" class="nav-link" data-scroll-target="#chat-message-editing">Chat message Editing</a></li>
+  </ul></li>
+  <li><a href="#removing-chatters" id="toc-removing-chatters" class="nav-link" data-scroll-target="#removing-chatters">Removing Chatters</a></li>
+  <li><a href="#rendering-pipeline" id="toc-rendering-pipeline" class="nav-link" data-scroll-target="#rendering-pipeline">Rendering Pipeline</a></li>
+  <li><a href="#built-in-log" id="toc-built-in-log" class="nav-link" data-scroll-target="#built-in-log">Built in Log</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -2176,7 +2211,78 @@ vertical-align: -.125em;
 </header>
 
 
-
+<p>Back to Portfolio: <a href="https://devoreni.github.io/portfolio/" class="uri">https://devoreni.github.io/portfolio/</a></p>
+<section id="background" class="level1">
+<h1>Background</h1>
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
+<p>Live streamers often have a live chat on the screen to keep viewers entertained and chatters engaged; however, managing tens, hundreds, or even thousands of chatters and messages to ensure proper behavior is challenging. If a single bad mannered message makes it through and the live stream is published, it can seriously harm the reputation of the presentor.</p>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>The solution is to prerecord a video, then add fake chatters in post who react to the content as if they were watching live. Generative AI can streamline this process and a custom rendering pipeline can perform the necessary video editing and chat overlay.</p>
+</section>
+<section id="project-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="project-requirements">Project Requirements</h2>
+<p>The following requirements are met by the AI Chat project:</p>
+<ul>
+<li>Context is automatically extracted from the Audio and Video</li>
+<li>Additional context can be given to enhance responses</li>
+<li>Context can be modified or changed at any point in the recording</li>
+<li>Chatters have unique personalities and speech patters</li>
+<li>Chatters can be pruned from the application</li>
+<li>Chat messages can be altered in any way</li>
+</ul>
+</section>
+</section>
+<section id="implementation" class="level1">
+<h1>Implementation</h1>
+<section id="chatter-personalities" class="level2">
+<h2 class="anchored" data-anchor-id="chatter-personalities">Chatter Personalities</h2>
+<section id="database-structure-and-normal-forms" class="level3">
+<h3 class="anchored" data-anchor-id="database-structure-and-normal-forms">Database Structure and Normal Forms</h3>
+</section>
+<section id="username-generation" class="level3">
+<h3 class="anchored" data-anchor-id="username-generation">Username Generation</h3>
+</section>
+<section id="personalization" class="level3">
+<h3 class="anchored" data-anchor-id="personalization">Personalization</h3>
+</section>
+</section>
+<section id="context-gathering" class="level2">
+<h2 class="anchored" data-anchor-id="context-gathering">Context Gathering</h2>
+<section id="video-description" class="level3">
+<h3 class="anchored" data-anchor-id="video-description">Video Description</h3>
+</section>
+<section id="audio-transcription" class="level3">
+<h3 class="anchored" data-anchor-id="audio-transcription">Audio Transcription</h3>
+</section>
+<section id="previous-chat-messages" class="level3">
+<h3 class="anchored" data-anchor-id="previous-chat-messages">Previous Chat Messages</h3>
+</section>
+</section>
+<section id="user-modifications" class="level2">
+<h2 class="anchored" data-anchor-id="user-modifications">User Modifications</h2>
+<section id="importance-of-manual-adjustments" class="level3">
+<h3 class="anchored" data-anchor-id="importance-of-manual-adjustments">Importance of Manual Adjustments</h3>
+</section>
+<section id="transcription-editing" class="level3">
+<h3 class="anchored" data-anchor-id="transcription-editing">Transcription Editing</h3>
+</section>
+<section id="chat-message-editing" class="level3">
+<h3 class="anchored" data-anchor-id="chat-message-editing">Chat message Editing</h3>
+</section>
+</section>
+<section id="removing-chatters" class="level2">
+<h2 class="anchored" data-anchor-id="removing-chatters">Removing Chatters</h2>
+</section>
+<section id="rendering-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="rendering-pipeline">Rendering Pipeline</h2>
+</section>
+<section id="built-in-log" class="level2">
+<h2 class="anchored" data-anchor-id="built-in-log">Built in Log</h2>
+</section>
+</section>
 
 </main>
 <!-- /main column -->

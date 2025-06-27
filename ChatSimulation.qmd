@@ -8,3 +8,55 @@ format:
         toc: true
         embed-resources: true
 ---
+
+Back to Portfolio: <https://devoreni.github.io/portfolio/>
+
+# Background
+
+## Problem Statement
+Live streamers often have a live chat on the screen to keep viewers entertained and chatters engaged; however, managing tens, hundreds, or even thousands of chatters and messages to ensure proper behavior is challenging. If a single bad mannered message makes it through and the live stream is published, it can seriously harm the reputation of the presentor.
+
+## Solution
+The solution is to prerecord a video, then add fake chatters in post who react to the content as if they were watching live. Generative AI can streamline this process and a custom rendering pipeline can perform the necessary video editing and chat overlay.
+
+## Project Requirements
+The following requirements are met by the AI Chat project:
+
+- Context is automatically extracted from the Audio and Video
+- Additional context can be given to enhance responses
+- Context can be modified or changed at any point in the recording
+- Chatters have unique personalities and speech patters
+- Chatters can be pruned from the application
+- Chat messages can be altered in any way
+
+# Implementation
+
+## Chatter Personalities
+
+### Database Structure and Normal Forms
+
+### Username Generation
+
+### Personalization
+
+## Context Gathering
+
+### Video Description
+
+### Audio Transcription
+
+### Previous Chat Messages
+
+## User Modifications
+
+### Importance of Manual Adjustments
+
+### Transcription Editing
+
+### Chat message Editing
+
+## Removing Chatters
+
+## Rendering Pipeline
+
+## Built in Log
