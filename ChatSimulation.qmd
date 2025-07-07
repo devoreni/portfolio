@@ -29,15 +29,100 @@ The following requirements are met by the AI Chat project:
 - Chatters can be pruned from the application
 - Chat messages can be altered in any way
 
+# UX pipeline
+
+Though the project itself is complex and involves many moving parts, the user experiance is streamlined to allow for ease of use.
+
+1. The user chooses uses the file browser to choose a video to add a chat to.
+1. The video is automatically transcribed and the user can make changes
+1. The user can provide any additional context with a text box in the gui
+1. When the user is ready, they can choose to generate the chat
+1. After the chat is generated, they can edit anything about any of the messages
+1. At any point, the user can choose where they would like the chat overlay to be
+1. Finally, they can generate the video which saves a `.mp4` copy of the original video with the chat overlayed.
+
 # Implementation
 
-## Chatter Personalities
+This section is an in depth description of the implementation.
+
+## Project Structure
+
+The project has 3 main components
+
+* Creation of Chatters
+* The PyQt5 gui
+* The main worker threads
+
+## Chatter Creation
+
+### Usernames
+
+One of the most important parts of making the chatters feel like real people is for them to have varied and unique usernames. To accomplish this an llm is used and given a list of attributes of a person. 
+
+### Message Style
+
+Each chatter is given a personality, a message style, and a few 'example messages' that chatter might say. These are used later when it comes time to generate the chat messages.
 
 ### Database Structure and Normal Forms
 
+Chatters and their messages are stored in an sqlite3 database with the following structure:
+
+```{mermaid}
+---
+title: Chatter Database
+---
+erDiagram
+    CHATTERS ||--o{ CHAT_LOGS : "have messages in"
+    CHATTERS {
+        TEXT username PK
+        TEXT gender
+        TEXT subscription_tier
+        INT age
+        TEXT chatter_description
+        TEXT username_color
+        INT message_frequency
+        INT badge_one
+        INT badge_two
+    }
+    CHAT_LOGS {
+        INT message_id PK
+        TEXT username
+        TEXT message
+    }
+    RECENT_MESSAGES {
+        INT message_id PK
+        TEXT username
+        TEXT message
+    }
+```
+
+
+
+
+
+
+
+
+
+**Chatter Creation:** Creating unique and independent chatters, with the capability to interact with both the stream and eachother is crucial to making the chat feel real and alive. To accomplish this, attributes are given to chatters and from those attributes, they are given a personality. From their personality and attributes, an llm is used to give them a username. While this might seem like overkill, it is a necessary step to ensuring that the usernames seem like they were chosen with intention. They are then assigned example messages based on their attributes and personalities. 
+
+**Message Generation:** First, the user selects a video file on their machine. OpenAI's Whisper then transcribes the audio and stores the `.vtt` file. The user can then verify the transcript and change or correct words. Next, the user can start the chat generation process. Next, a chatter is chosen from within the database. The recent messages from chat, lines from a section of the transcript, frames from the video, and any aditional context offered are taken and passed to a built in llm using **ollama's** api for local llms. This process continues until the entire transcript and video have been processed. The chat messages are stored in a `.csv`. The user can then view and make changes to chat messages by editing the csv. The user can at any time, specify the region they wish the chat messages to show up in. Lastly, they will start the overlay process. **Opencv** is used to extract the frames from the video and overlay the chat messages upon them. The frames are then stitched back together and the output is saved as an `.mp4` file.
+
+## Chatter Personalities
+
+To create varied and unique personalities, attributes are randomly chosen and assigned to chatters before they are created. This includes everything from hair color, to age, to hobbies, skills, and music tastes. With hundreds of thousands of combinations, each chatter is almost guaranteed to be unique. From these attributes, the chatter's personality, message style, username, and message frequency are created.
+
 ### Username Generation
 
+An important part of making chatters feel real is username generation. A few of the attributes which were previously generated are used to create a unique username for the chatter. This step is extremely important in generating realistic usernames that are unique.
+
 ### Personalization
+
+Next, the attributes are used to create a personality, message frequency, and example messages the chatter would likely send. The information on the new chatter is distilled and stored in the database for use when generating messages.
+
+
+
+
 
 ## Context Gathering
 
@@ -64,3 +149,7 @@ The following requirements are met by the AI Chat project:
 ### Chat Window Overlay
 
 ## Built in Log
+
+# Results
+
+# Conclusion
