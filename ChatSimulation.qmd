@@ -157,7 +157,13 @@ In order to improve the accuracy and personability of the chatters, two text fie
 <br><br>
 Sometimes, chatter consistently leave less than ideal chat messages, in which case, users have the option to "ban" chatters by tying in their username and pressing commit ban.
 
-### GUI Backend
+### Built in Log
+
+Some of the processes can take a long time, especailly transcription and chat generation. To ensure users know what is happening instead of seeing the application freeze, a log is built into the gui. It updates the user anytime an action is performed. For example, during video transcription, the log with first output a message acknowledging the start of the video transcription process. It then prints lines of the transcript and their time stamps in real time so users can moniter progress.
+
+## Worker Threads
+
+In order to keep the log active and the gui from freezing during lengthy processes, backend logic is handled in seperate threads.
 
 
 
