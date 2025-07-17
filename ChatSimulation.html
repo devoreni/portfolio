@@ -4650,12 +4650,11 @@ z-index: 1000;
   <li><a href="#whisper" id="toc-whisper" class="nav-link" data-scroll-target="#whisper">Whisper</a></li>
   <li><a href="#chat-generation" id="toc-chat-generation" class="nav-link" data-scroll-target="#chat-generation">Chat Generation</a></li>
   <li><a href="#rendering-pipeline" id="toc-rendering-pipeline" class="nav-link" data-scroll-target="#rendering-pipeline">Rendering Pipeline</a></li>
+  <li><a href="#chatter-removal" id="toc-chatter-removal" class="nav-link" data-scroll-target="#chatter-removal">Chatter Removal</a></li>
   </ul></li>
   <li><a href="#user-modifications" id="toc-user-modifications" class="nav-link" data-scroll-target="#user-modifications">User Modifications</a>
   <ul class="collapse">
   <li><a href="#importance-of-manual-adjustments" id="toc-importance-of-manual-adjustments" class="nav-link" data-scroll-target="#importance-of-manual-adjustments">Importance of Manual Adjustments</a></li>
-  <li><a href="#transcription-editing" id="toc-transcription-editing" class="nav-link" data-scroll-target="#transcription-editing">Transcription Editing</a></li>
-  <li><a href="#chat-message-editing" id="toc-chat-message-editing" class="nav-link" data-scroll-target="#chat-message-editing">Chat message Editing</a></li>
   </ul></li>
   <li><a href="#removing-chatters" id="toc-removing-chatters" class="nav-link" data-scroll-target="#removing-chatters">Removing Chatters</a>
   <ul class="collapse">
@@ -4876,6 +4875,10 @@ erDiagram
 <section id="rendering-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="rendering-pipeline">Rendering Pipeline</h3>
 <p>The project uses a custom rendering pipeline utilizing opencv. Each frame is extracted from the provided video file, then, each chat element is layered on top. First a semi-transparent rectangle is generated, the username of the next chatter is drawn in the proper color, any badges are rendered, and finally their message is layered in the proper place. New chat messages push older one up the screen and, after a message has been displayed for a certain amount of time, it disapears from the screen entirely. The result is a dymanic and fluid chat that looks and behaves like real people reacting live to when the video was filmed. The video is then stored in an output folder.</p>
+</section>
+<section id="chatter-removal" class="level3">
+<h3 class="anchored" data-anchor-id="chatter-removal">Chatter Removal</h3>
+<p>Chatters can be removed from the database by entering their username in “Ban Chatter” section of the GUI and clicking “Ban Chatter.” The user is informed of a successful removal in the log if a chatter with a matching username is found, otherwise, they are informed that there was an error with the removal process.</p>
 <p><br><br><br><br><br><br><br><br><br><br></p>
 </section>
 </section>
@@ -4883,12 +4886,6 @@ erDiagram
 <h2 class="anchored" data-anchor-id="user-modifications">User Modifications</h2>
 <section id="importance-of-manual-adjustments" class="level3">
 <h3 class="anchored" data-anchor-id="importance-of-manual-adjustments">Importance of Manual Adjustments</h3>
-</section>
-<section id="transcription-editing" class="level3">
-<h3 class="anchored" data-anchor-id="transcription-editing">Transcription Editing</h3>
-</section>
-<section id="chat-message-editing" class="level3">
-<h3 class="anchored" data-anchor-id="chat-message-editing">Chat message Editing</h3>
 </section>
 </section>
 <section id="removing-chatters" class="level2">
