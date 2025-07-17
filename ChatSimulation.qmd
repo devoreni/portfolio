@@ -171,11 +171,11 @@ Whisper Transcription is handled within a thread. Whisper is a speech to text, o
 
 ### Chat Generation
 
-After Audio is process, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated for each chatter chosen including the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, information about the chatter including the "seed messages" that were created when the chatter was initially created, and the streamer's name and stream description if provided by the user. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
+After the Audio is processed, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated for each chatter chosen which includes the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, information about the chatter including the "seed messages" that were created when the chatter was initially created, and the streamer's name and stream description if provided by the user. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
 
 ### Rendering Pipeline
 
-The project uses a custom rendering pipeline utilizing opencv.
+The project uses a custom rendering pipeline utilizing opencv. Each frame is extracted from the provided video file, then, each chat element is layered on top. First a semi-transparent rectangle is generated, the username of the next chatter is drawn in the proper color, any badges are rendered, and finally their message is layered in the proper place. New chat messages push older one up the screen and, after a message has been displayed for a certain amount of time, it disapears from the screen entirely. The result is a dymanic and fluid chat that looks and behaves like real people reacting live to when the video was filmed. The video is then stored in an output folder.
 
 
 
@@ -200,13 +200,13 @@ The project uses a custom rendering pipeline utilizing opencv.
 
 
 
-## Context Gathering
 
-### Video Description
 
-### Audio Transcription
 
-### Previous Chat Messages
+
+
+
+
 
 ## User Modifications
 
@@ -218,13 +218,7 @@ The project uses a custom rendering pipeline utilizing opencv.
 
 ## Removing Chatters
 
-## Rendering Pipeline
-
-### Frame Extraction
-
 ### Chat Window Overlay
-
-## Built in Log
 
 # Results
 
