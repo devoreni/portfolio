@@ -171,7 +171,7 @@ Whisper Transcription is handled within a thread. Whisper is a speech to text, o
 
 ### Chat Generation
 
-After Audio is process, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated including the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, and information about the chatter including the "seed messages" that were created with the chatter was initially created for each of chatters selected. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
+After Audio is process, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated for each chatter chosen including the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, information about the chatter including the "seed messages" that were created when the chatter was initially created, and the streamer's name and stream description if provided by the user. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
 
 ### Rendering Pipeline
 
