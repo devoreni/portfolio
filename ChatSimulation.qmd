@@ -163,9 +163,19 @@ Some of the processes can take a long time, especailly transcription and chat ge
 
 ## Worker Threads
 
-In order to keep the log active and the gui from freezing during lengthy processes, backend logic is handled in seperate threads.
+In order to keep the log active and the gui from freezing during lengthy processes, backend logic is handled in seperate threads. Threads set a flag to disable buttons in the main gui so nothing breaks, but the log is still updated and the application window can still be interacted with.
 
+### Whisper
 
+Whisper Transcription is handled within a thread. Whisper is a speech to text, open source, ai model developed by OpenAI. When called, it extracts the audio from the selected video file, cleans it with ffmpeg, then begins the transcription process. Infered context and previously generated tokens help determine the next token in the sequence. The output is stored in a `.vtt` format which includes a timestamp and the generated tokens for that timestamp. Users can edit this file to correct mistakes or correct words or phrases that were mispoken. After each line is transcribed, it and the current timestamp is sent to the log to be displayed so the user can track the progress of Whisper.
+
+### Chat Generation
+
+After Audio is process, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated including the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, and information about the chatter including the "seed messages" that were created with the chatter was initially created for each of chatters selected. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
+
+### Rendering Pipeline
+
+The project uses a custom rendering pipeline utilizing opencv.
 
 
 
