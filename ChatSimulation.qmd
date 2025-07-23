@@ -175,11 +175,13 @@ After the Audio is processed, chat generation can begin. For each line in the `.
 
 ### Rendering Pipeline
 
-The project uses a custom rendering pipeline utilizing opencv. Each frame is extracted from the provided video file, then, each chat element is layered on top. First a semi-transparent rectangle is generated, the username of the next chatter is drawn in the proper color, any badges are rendered, and finally their message is layered in the proper place. New chat messages push older one up the screen and, after a message has been displayed for a certain amount of time, it disapears from the screen entirely. The result is a dymanic and fluid chat that looks and behaves like real people reacting live to when the video was filmed. The video is then stored in an output folder.
+The project uses a custom rendering pipeline utilizing opencv. Each frame is extracted from the provided video file, then, each chat element is layered on top. First a semi-transparent rectangle is generated, the username of the next chatter is drawn in the proper color, any badges are rendered, and finally their message is layered in the proper place. New chat messages push older one up the screen and, after a message has been displayed for a certain amount of time, it disapears from the screen entirely. The result is a dymanic and fluid chat that looks and behaves like real people reacting live to when the video was filmed. As each frame is processed, a bar at the bottom of the log fills up and displays the rendering completion percent. The video is then stored in an output folder.
 
 ### Chatter Removal
 
 Chatters can be removed from the database by entering their username in "Ban Chatter" section of the GUI and clicking "Ban Chatter." The user is informed of a successful removal in the log if a chatter with a matching username is found, otherwise, they are informed that there was an error with the removal process.
+
+# Results
 
 
 
@@ -216,10 +218,6 @@ Chatters can be removed from the database by entering their username in "Ban Cha
 
 ### Importance of Manual Adjustments
 
-## Removing Chatters
 
-### Chat Window Overlay
-
-# Results
 
 # Conclusion
