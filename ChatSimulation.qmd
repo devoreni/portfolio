@@ -11,12 +11,15 @@ format:
 
 Back to Portfolio: <https://devoreni.github.io/portfolio/>
 
-# Background
+# Abstract
+
+## Introduction
+Live-streamed content thrives on audience interaction, but managing a live chat presents significant moderation challenges and reputational risks. This project introduces a novel solution: a post-production AI Chat Simulation application. The system leverages multi-modal AI to generate a realistic, dynamic chat overlay for pre-recorded videos, giving creators complete control over the final content. The application features a multi-threaded architecture to ensure a responsive user experience, integrating audio transcription via OpenAI's Whisper, multi-modal chat generation with local large language models (LLMs), and a custom video rendering pipeline built with OpenCV and Pillow. The result is a robust tool that empowers creators to simulate the engagement of a live stream without the associated risks.
 
 ## Problem Statement
-Live streamers often have a live chat on the screen to keep viewers entertained and chatters engaged; however, managing tens, hundreds, or even thousands of chatters and messages to ensure proper behavior is challenging. If a single bad mannered message makes it through and the live stream is published, it can seriously harm the reputation of the presentor.
+Live streaming platforms foster a unique connection between the streamer and the audience through real-time chat interaction. Displaying the chat on-screen is standard practice to enhance viewer engagement for both the live viewers and video on demand (VOD) viewers. This practice introduces the significant challenge of chat moderation from potentially thousands of participants. A sigle inappropriate or malicious message appearing on stream can permenantly tarnish the reputation of the presentor, their community, and their brand, especially if the message makes it into the VOD where thousands more people could see the message.
 
-## Solution
+## Proposed Solution
 The solution is to prerecord a video, then add fake chatters in post who react to the content as if they were watching live. Generative AI can streamline this process and a custom rendering pipeline can perform the necessary video editing and chat overlay.
 
 ## Project Requirements
@@ -184,6 +187,8 @@ Chatters can be removed from the database by entering their username in "Ban Cha
 # Results
 
 The final product is an application that adds a dynamic and lively chat to any pre-recorded video. It allows for user customization and complete control over every aspect of the wrokflow while still maintaining ease of use and a logical flow such that the product is easy to use and intuative, even to someone that has never used the product before. Due to the use of locally run llm's, the performance of the application is dependant on the specs of the computer it is run on. The product is not currently available for download due to the complex dependancies that are required for the program to run. Docker and a setup wizard will be made available in the future so that anyone can quickly and easily download and run the application.
+
+//Demo will be included here//
 
 # Conclusion
 
