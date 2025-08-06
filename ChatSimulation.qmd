@@ -45,25 +45,17 @@ While the back-end is a complex integration of multiple systems, the user workfl
 
 # Implementation
 
-This section is an in depth description of the implementation.
-
-## Project Structure
-
-The project has 3 main components
-
-* Creation of Chatters
-* The PyQt5 gui
-* The main worker threads
+The project is architecturally divided into three primary components: the AI Chatter Generation module, the Database, and the main multi-threaded application logic.
 
 ## Chatter Creation
 
 ### Usernames
 
-One of the most important parts of making the chatters feel like real people is for them to have varied and unique usernames. To accomplish this an llm is used and given a list of attributes of a person. After a username is generated it is check against the database for uniqueness and either added or regenerated.
+One of the most important parts of making the chatters feel like real people is for them to have varied and unique usernames. Procedurally generated attributes are assigned to a chatter then are fed to an LLM to generate a unique, natural-sounding username. The username is checked for uniqueness before being committed.
 
 ### Message Style
 
-Each chatter is given a personality, a message style, and a few 'example messages' that chatter might say. These are used later when it comes time to generate the chat messages.
+Based on their assigned attributes, "seed messages" are created and stored. These messages provide that chat generation model with a baseline for the chatter's message sytle, preventing stylistic drift and ensuring consistency. This technique avoids "flanderization," where a character becomes an exaggerated caricature of themselves over time.
 
 ### Database Structure
 
@@ -98,15 +90,15 @@ erDiagram
     }
 ```
 
-**CHATTERS** table: Stores information about a chatter for use in generating chat messages and for video rendering. The Chatter's gender, subscription tier, and age influence the kinds of messages the chatter will leave. When displaying the chatter and their message, the username is a in a color specified by username_color along side any badges that chatter may have. Message frequency influences how often that chatter leaves messages.
+**CHATTERS:** Stores persistent data about each AI entity and certain details relating to their attributes. 
 
-**CHAT_LOGS** table: Stores the example messages of each chatter. It is updated when a new chatter is created. It does not store new messages chatters leave to avoid flanderization.
+**CHAT_LOGS:** stores the initial "seed" example messages for each chatter. This table is not updated with new messages except upon intitial creation of a chatter.
 
-**RECENT_MESSAGES** table: keeps track of the 10 most recent messages in chat which helps to provide context when generating new chat messages. It also allows for an interactive chat where chatters can interact with each other as well as the stream.
+**RECENT_MESSAGES:** Keeps a rolling log of the last 20 generated messages. Tis table provides immediate conversational context and allows for interaction between chatters.
 
 ### Normal Forms
 
-This database is in the Fifth Normal Form as it satisfies all requirements.
+This database is in the Fifth Normal Form and necessarily adheres to all preceding normal forms.
 
 **1NF** 
 
@@ -162,19 +154,33 @@ Some of the processes can take a long time, especailly transcription and chat ge
 
 ## Worker Threads
 
-In order to keep the log active and the gui from freezing during lengthy processes, backend logic is handled in seperate threads. Threads set a flag to disable buttons in the main gui so nothing breaks, but the log is still updated and the application window can still be interacted with.
+In order to keep the log active and the gui from freezing during lengthy processes, backend logic is handled in seperate threads. Threads set a flag to disable buttons in the main gui, but the log is still updated and the application window can still be interacted with.
 
 ### Whisper
 
 Whisper Transcription is handled within a thread. Whisper is a speech to text, open source, ai model developed by OpenAI. When called, it extracts the audio from the selected video file, cleans it with ffmpeg, then begins the transcription process. Infered context and previously generated tokens help determine the next token in the sequence. The output is stored in a `.vtt` format which includes a timestamp and the generated tokens for that timestamp. Users can edit this file to correct mistakes or correct words or phrases that were mispoken. After each line is transcribed, it and the current timestamp is sent to the log to be displayed so the user can track the progress of Whisper.
 
-### Chat Generation
+### Chat Message Generation
 
-After the Audio is processed, chat generation can begin. For each line in the `.vtt` file, a random number of chat messages are set to be generated. A prompt is generated for each chatter chosen which includes the past few lines from the vtt, the past several chat messages, a screenshot of the video from the corresponding timestamp, information about the chatter including the "seed messages" that were created when the chatter was initially created, and the streamer's name and stream description if provided by the user. The prompts are given to a built in llm and a message is created for each chatter. The messages are spaced out and stored in a csv along with metadata including the chatter's username, display color, owned badges, and the time to be displayed.
+The ChatGenWorker orchestrates the message creation process. For each segment of the transcript, it constructs a multi-modal prompt for a local LLM (gemma3:4b via Ollama). This prompt is a composite of
+
+1. The current and recent lines from the audio transcript.
+1. The last 10-20 messages from the general chat (RECENT_MESSAGES).
+1. A video frame extracted from the corresponding timestamp
+1. The selected chatter's persona information and seed messages.
+1. User-provided stream description and streamer name.
+
+By combining audio, visual, and conversational context, the LLM generates a relevant and in-character message.
 
 ### Rendering Pipeline
 
-The project uses a custom rendering pipeline utilizing opencv. Each frame is extracted from the provided video file, then, each chat element is layered on top. First a semi-transparent rectangle is generated, the username of the next chatter is drawn in the proper color, any badges are rendered, and finally their message is layered in the proper place. New chat messages push older one up the screen and, after a message has been displayed for a certain amount of time, it disapears from the screen entirely. The result is a dymanic and fluid chat that looks and behaves like real people reacting live to when the video was filmed. As each frame is processed, a bar at the bottom of the log fills up and displays the rendering completion percent. The video is then stored in an output folder.
+The project uses a custom rendering pipeline utilizing OpenCV and Pillow. It processes the source video frame-by-frame:
+
+1. For each frame, it determines the set of chat messages that should be visible based on their generation timestamp and a fixed display duration.
+1. It creates a transparent overlay layer. On this layer, it renders each active chat message, including a semi-transparent background, user badges, the colored username, and the message text.
+1. New messages appear at the bottom and push older messages upward.
+1. This chat overlay is then composited onto the source video frame.
+1. The final frames are encoded into an .mp4 video file using imageio. Progress is reported to a progress bar in the GUI.
 
 ### Chatter Removal
 
@@ -182,10 +188,16 @@ Chatters can be removed from the database by entering their username in "Ban Cha
 
 # Results
 
-The final product is an application that adds a dynamic and lively chat to any pre-recorded video. It allows for user customization and complete control over every aspect of the wrokflow while still maintaining ease of use and a logical flow such that the product is easy to use and intuative, even to someone that has never used the product before. Due to the use of locally run llm's, the performance of the application is dependant on the specs of the computer it is run on. The product is not currently available for download due to the complex dependancies that are required for the program to run. Docker and a setup wizard will be made available in the future so that anyone can quickly and easily download and run the application.
+The project successfully produces an application that meets all stated objectives. It adds a dynamic and customizable simulated chat to pre-recorded videos, offering creators a tool for enhancing content while maintaining full editorial control.
+<br>
+The performance of the application is inherently dependent on the user's hardware, particularly the GPU, as it relies on locally-run language models and video processing.
+Future development will focus on two key areas:
+
+1. Containerization: The complex dependency graph makes installation challenging. The application will be containerized using Docker to simplify distribution and ensure a consistent runtime environment.
+1. Enhanced Customization: Future versions will include more options for the chat overlay's appearance and behavior, offering greater visual flexibility.
 
 //Demo will be included here//
 
 # Conclusion
 
-This was the most complex and extensive solo project I have undertaken. With 3 seperate python files, a sqlite3 database, 2500 lines of code, had drawn assets, 2 locally run llm's, and nearly a dozen dependancies, it proved to be an extreme undertaking. While there is room for improvement, the current itteration of the Live Chat Simulation delivers exactly what it is supposed to in a user friendly way while still offering complete control over every step of the process. There is still future work to do, such as allowing more ways for the chat to apear on the screen, and containerization with Docker for distribution.
+The AI Chat Simulation project was a significant and complex solo project, successfully integrating multiple complex systems: multi-threaded application design, local large language models for both text and multi-modal generation, a custom relational database schema, and a video processing pipeline. The current iteration is robust and functional and provides a user-friendly interface without sacrificing granular control. With planned improvements in distribution and customization, this tool has the potential to become a valuable asset for content creators.
