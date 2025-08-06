@@ -183,41 +183,8 @@ Chatters can be removed from the database by entering their username in "Ban Cha
 
 # Results
 
-
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## User Modifications
-
-### Importance of Manual Adjustments
-
-
+The final product is an application that adds a dynamic and lively chat to any pre-recorded video. It allows for user customization and complete control over every aspect of the wrokflow while still maintaining ease of use and a logical flow such that the product is easy to use and intuative, even to someone that has never used the product before. Due to the use of locally run llm's, the performance of the application is dependant on the specs of the computer it is run on. The product is not currently available for download due to the complex dependancies that are required for the program to run. Docker and a setup wizard will be made available in the future so that anyone can quickly and easily download and run the application.
 
 # Conclusion
+
+This was the most complex and extensive solo project I have undertaken. With 3 seperate python files, a sqlite3 database, 2500 lines of code, had drawn assets, 2 locally run llm's, and nearly a dozen dependancies, it proved to be an extreme undertaking. While there is room for improvement, the current itteration of the Live Chat Simulation delivers exactly what it is supposed to in a user friendly way while still offering complete control over every step of the process. There is still future work to do, such as allowing more ways for the chat to apear on the screen, and containerization with Docker for distribution.
