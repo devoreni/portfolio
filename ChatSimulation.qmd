@@ -32,17 +32,14 @@ The following requirements are met by the AI Chat project:
 - **Chatter Curation:** Users will have the ability to permanently remove ("ban") specific AI chatters from the system.
 
 # UX pipeline
+While the back-end is a complex integration of multiple systems, the user workflow is designed to be linear and intuitive.
 
-Though the project itself is complex and involves many moving parts, the user experiance is streamlined to allow for ease of use.
-
-1. The user chooses uses the file browser to choose a video to add a chat to.
-1. The video is automatically transcribed and the user can make changes
-1. The user can provide any additional context with a text box in the gui
-1. When the user is ready, they can choose to generate the chat
-1. After the chat is generated, they can edit anything about any of the messages
-1. At any point, the user can choose where they would like the chat overlay to be
-1. The user can "ban" a chatter if they choose to
-1. Finally, they can generate the video which saves a `.mp4` copy of the original video with the chat overlayed.
+1.  **Video Selection:** The user selects a source video file (`.mp4`, `.mkv`) via a built in file browser.
+1.  **Audio Transcription:** The application automatically transcribes the video's audio using a local Whisper model, producing a `.vtt` file. The user can manually edit this file to correct any inaccuracies, add aditional lines, remove them, or alter timestamps.
+1.  **Context Refinement (Optional):** The user can provide supplementary context, such as the streamer's name and a brief video description, via text fields in the GUI.
+1.  **Chat Generation:** The user initiates the chat generation process. The system analyzes the transcript, video frames, and user-provided context to produce a complete chat log as a `.csv` file.
+1.  **Chat Curation:** After generation, the user can edit the `.csv` file to modify message content, timing, chatter appearance, or other metadata. Users can also "ban" chatters, removing them from the database entirely.
+1.  **Video Rendering:** The user defines an overlay position and initiates the final rendering. The system composites the chat overlay onto the original video, producing a final `.mp4` file.
 
 ![Screenshot of Application](assets/ChatSimulationAssets/LiveChatScreenshot.png)
 

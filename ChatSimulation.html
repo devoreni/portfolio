@@ -4721,16 +4721,14 @@ z-index: 1000;
 </section>
 <section id="ux-pipeline" class="level1">
 <h1>UX pipeline</h1>
-<p>Though the project itself is complex and involves many moving parts, the user experiance is streamlined to allow for ease of use.</p>
+<p>While the back-end is a complex integration of multiple systems, the user workflow is designed to be linear and intuitive.</p>
 <ol type="1">
-<li>The user chooses uses the file browser to choose a video to add a chat to.</li>
-<li>The video is automatically transcribed and the user can make changes</li>
-<li>The user can provide any additional context with a text box in the gui</li>
-<li>When the user is ready, they can choose to generate the chat</li>
-<li>After the chat is generated, they can edit anything about any of the messages</li>
-<li>At any point, the user can choose where they would like the chat overlay to be</li>
-<li>The user can “ban” a chatter if they choose to</li>
-<li>Finally, they can generate the video which saves a <code>.mp4</code> copy of the original video with the chat overlayed.</li>
+<li><strong>Video Selection:</strong> The user selects a source video file (<code>.mp4</code>, <code>.mkv</code>) via a built in file browser.</li>
+<li><strong>Audio Transcription:</strong> The application automatically transcribes the video’s audio using a local Whisper model, producing a <code>.vtt</code> file. The user can manually edit this file to correct any inaccuracies, add aditional lines, remove them, or alter timestamps.</li>
+<li><strong>Context Refinement (Optional):</strong> The user can provide supplementary context, such as the streamer’s name and a brief video description, via text fields in the GUI.</li>
+<li><strong>Chat Generation:</strong> The user initiates the chat generation process. The system analyzes the transcript, video frames, and user-provided context to produce a complete chat log as a <code>.csv</code> file.</li>
+<li><strong>Chat Curation:</strong> After generation, the user can edit the <code>.csv</code> file to modify message content, timing, chatter appearance, or other metadata. Users can also “ban” chatters, removing them from the database entirely.</li>
+<li><strong>Video Rendering:</strong> The user defines an overlay position and initiates the final rendering. The system composites the chat overlay onto the original video, producing a final <code>.mp4</code> file.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
