@@ -4697,7 +4697,7 @@ z-index: 1000;
 <h1>Abstract</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Live-streamed content thrives on audience interaction, but managing a live chat presents significant moderation challenges and reputational risks. This project introduces a novel solution: a post-production AI Chat Simulation application. The system leverages multi-modal AI to generate a realistic, dynamic chat overlay for pre-recorded videos, giving creators complete control over the final content. The application features a multi-threaded architecture to ensure a responsive user experience, integrating audio transcription via OpenAI’s Whisper, multi-modal chat generation with local large language models (LLMs), and a custom video rendering pipeline built with OpenCV and Pillow. The result is a robust tool that empowers creators to simulate the engagement of a live stream without the associated risks.</p>
+<p>Live-streamed content thrives on audience interaction, however managing a live chat presents significant moderation challenges and reputational risks. This project introduces the following solution: a post-production AI Chat Simulation application. The system leverages multi-modal AI (generative AI that can take in a variety of media inputs such as text, images, and video) to generate a realistic, dynamic chat overlay for pre-recorded videos, giving creators complete control over the final content. The application features a multi-threaded architecture to ensure a responsive user experience, integrated audio transcription via OpenAI’s Whisper, multi-modal chat generation with local large language models (LLMs), and a custom video rendering pipeline built with OpenCV and Pillow. The result is a robust tool which eliminates the risks associated with a live chat while still offering the perception of engagement.</p>
 </section>
 <section id="problem-statement" class="level2">
 <h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
@@ -4705,18 +4705,17 @@ z-index: 1000;
 </section>
 <section id="proposed-solution" class="level2">
 <h2 class="anchored" data-anchor-id="proposed-solution">Proposed Solution</h2>
-<p>The solution is to prerecord a video, then add fake chatters in post who react to the content as if they were watching live. Generative AI can streamline this process and a custom rendering pipeline can perform the necessary video editing and chat overlay.</p>
+<p>To mitigate the risks while preserving the aesthetic of live interation, this project takes a post-production approach. By extracting features from a pre-recorded video, a simulated chate is generated and overlaid onto the footage. Users can, at any point, alter any aspect of the chat to their desire, including usernames of chatters, messages left, the color of usernames, badges chatters have, the time a message is sent, or delete or create messages at their discretion. Realistic chat messages react dynamically to the video content and to other previous chat messages. The entire workflow is streamlined and easy to use.</p>
 </section>
 <section id="project-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="project-requirements">Project Requirements</h2>
 <p>The following requirements are met by the AI Chat project:</p>
 <ul>
-<li>Context is automatically extracted from the Audio and Video</li>
-<li>Additional context can be given to enhance responses</li>
-<li>Context can be modified or changed at any point in the recording</li>
-<li>Chatters have unique personalities and speech patters</li>
-<li>Chatters can be pruned from the application</li>
-<li>Chat messages can be altered in any way</li>
+<li><strong>Automated Context Extraction:</strong> The system will automatically transcribe the video’s audio and analyze video frames to understand on-screen events.</li>
+<li><strong>Enhanced Contextual Awareness:</strong> Users will be able to provide additional text-based context, such as a video description or streamer persona, to refine AI-generated responses.</li>
+<li><strong>Unique Chatter Personas:</strong> Each simulated chatter will possesses a unique, procedurally generated personality, speaking style, and visual identity (username color, badges).</li>
+<li><strong>Full Editorial Control:</strong> Users will be able to add, modify, or delete any generated chat message in any way.</li>
+<li><strong>Chatter Curation:</strong> Users will have the ability to permanently remove (“ban”) specific AI chatters from the system.</li>
 </ul>
 </section>
 </section>
