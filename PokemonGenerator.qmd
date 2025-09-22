@@ -1,0 +1,15 @@
+---
+title: Intelligent Generator for Unpredictable Competitive Strategies
+date: last-modified
+author: Nathan DeVore
+format:
+    html:
+        theme: Sandstone
+        toc: true
+        embed-resources: true
+---
+
+Back to Portfolio: <https://devoreni.github.io/portfolio/><br>
+GitHub Project Link: <https://github.com/devoreni/PokemonRandBatGIV>
+
+Project is complete, write up coming soon.
