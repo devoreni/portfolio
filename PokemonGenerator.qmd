@@ -15,7 +15,7 @@ GitHub Project Link: <https://github.com/devoreni/PokemonRandBatGIV>
 # Background
 
 ## Basics of Pokemon Battles
-Though silly on the surface, a lot goes into competative pokemon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random pokemon is given to each player and from there, they do battle. The problem is thus: pokemon have dozens of potential attacks available to them, some much better others, and while the specific pokemon on a team are random, their sets are not. This means that once you see a pokemon on yours or your opponants team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of pokemon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a pokemon is "Generated", is has its set entirely randomized, however, this led to the issue where pokemon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where a pokemon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an inteligent algorithm, varied and exciting sets can be created at the press of a button and, every set is guaranteed to be viable.
+Though silly on the surface, a lot goes into competative pokemon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random pokemon is given to each player and from there, they do battle. The problem is thus: pokemon have dozens of potential attacks available to them, some much better others, and while the specific pokemon on a team are random, their sets are not. This means that once you see a pokemon on your or your opponants team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of pokemon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a pokemon is "Generated", is has its set entirely randomized, however, this led to the issue where pokemon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where a pokemon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an inteligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.
 
 ## Building a set
 
@@ -40,5 +40,49 @@ A Pokemon set consists of the following:
         - The pokeball containing a pokemon has a unique look and animation as it opens
         - The gender of a pokemon can have niche battle effects, but is usually just preference
 
-![Example Pokemon Set](assets/PortfolioProjectAssets/Jirachi.png)
 
+![Example Pokemon Set](assets/PokemonRandBat/Jirachi.png){width=80%}
+
+# Project Requirements
+
+The solution will meet the following validation requirements:
+
+- The user will interact with an intuative gui.
+- The user will be able to specify the number of pokemon to be generated.
+- The pokemon generated will have a bananced distrobution.
+    - There will not be an overabundance of any type in the batch.
+- The movesets of the pokemon will be competatively viable and balanced across all pokemon.
+    - Pokemon with higher stats and better move options (like the legendary Kyogre) should compete on even ground with less powerful pokemon.
+- A pokemon's EVs and nature will match the identity of the pokemon
+    - A pokemon may function as a wall or an attacker based on its moves. The EV spread and nature should be chosen to match the use of the pokemon.
+- A pokemon's IVs should match the identity of the pokemon and be valid if the pokemon has the Hidden Power attack.
+- An optimal item will be chosen for the pokemon.
+- Pokemon will feel unique
+    - A pokemon will have a chance to be shiny
+    - A pokemon will have a ball
+    - A pokemon will have a gender
+
+The solution will meet the following verification requirements:
+
+- The program will not crash under normal circumstances.
+    - The program will be fully unit tested and fuzzed for a significant amount of time
+- The program will adhere to all coding standards.
+    - No fragile relative paths will be used.
+    - The project will have a logical file and folder structure, a readme, a .gitignore, a config file, and a requirements.txt.
+    - Proper version controlling will be handled with a version control file and version controller to enforce database integrity.
+- The program will follow the following rules as if it were safety-critical.
+    - There will be no goto statements, setjmp or longjmp constructs, or direct or indirect recursion.
+    - All loops have a fixed upper bound. 
+        - `While True:` will never be used
+        - a loop must be guaranteed to exit without the use of a `break`
+    - No function will be longer than what can be printed on a sheet of paper and will be readable.
+        - Functions will have low coupling and high cohesion.
+        - Exactly one statement per line.
+    - All data objects will be declared at the smallest possible scope.
+        - Dataflow will remain simple and easy to follow.
+    - All functions will check the validity of all parameters they are passed.
+    - Macros will be limited to the use of config filepaths only.
+    - The program will run without any warnings or errors.
+        - Running the program with the `-Wb` flag should never produce a warning or an error.
+
+    
