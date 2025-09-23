@@ -12,4 +12,33 @@ format:
 Back to Portfolio: <https://devoreni.github.io/portfolio/><br>
 GitHub Project Link: <https://github.com/devoreni/PokemonRandBatGIV>
 
-Project is complete, write up coming soon.
+# Background
+
+## Basics of Pokemon Battles
+Though silly on the surface, a lot goes into competative pokemon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random pokemon is given to each player and from there, they do battle. The problem is thus: pokemon have dozens of potential attacks available to them, some much better others, and while the specific pokemon on a team are random, their sets are not. This means that once you see a pokemon on yours or your opponants team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of pokemon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a pokemon is "Generated", is has its set entirely randomized, however, this led to the issue where pokemon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where a pokemon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an inteligent algorithm, varied and exciting sets can be created at the press of a button and, every set is guaranteed to be viable.
+
+## Building a set
+
+A Pokemon set consists of the following:
+
+- A chosen pokemon which determine
+    - The base stats of the pokemon (Hit Points, Attack, Defense, Special Attack, Special Defense, Speed)
+    - The type(s) of the pokemon (one or two types of 18 possible types which determine offensive and defensive capabilities)
+- Four Moves
+    - Each pokemon has around 50 - 80 possible moves, of which 4 can be chosen to "know" for the battle.
+- An ability
+    - Each pokemon has 1 - 3 passive abilities, one of which can be chosen.
+- 508 Effort Values
+    - Every four effort values increase a stat by a single point, up to 252 effort values per stat. 508 is enough to maximize two stats with enough for a single point somewhere else.
+- A nature
+    - the nature of a pokemon will remove 10% of a chosen stat and boost another by 10%
+- Individual Values
+    - Each stat can have up to 31 points added to it. However, in some senarios, lowing a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move's type is dependent on the chosen IVs, and in situations where moving after the oponant is beneficial to gain knowledge.
+- Additional considerations
+    - Extra "for fun" things can be added to a pokemon to give it a unique feel.
+        - Shiny pokemon have a different coloration (this changes nothing else)
+        - The pokeball containing a pokemon has a unique look and animation as it opens
+        - The gender of a pokemon can have niche battle effects, but is usually just preference
+
+![Example Pokemon Set](assets/PortfolioProjectAssets/Jirachi.png)
+

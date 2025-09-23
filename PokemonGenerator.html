@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nathan DeVore">
-<meta name="dcterms.date" content="2025-09-22">
+<meta name="dcterms.date" content="2025-09-23">
 
 <title>Intelligent Generator for Unpredictable Competitive Strategies</title>
 <style>
@@ -2140,8 +2140,18 @@ vertical-align: -.125em;
 <body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-  
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#basics-of-pokemon-battles" id="toc-basics-of-pokemon-battles" class="nav-link" data-scroll-target="#basics-of-pokemon-battles">Basics of Pokemon Battles</a></li>
+  <li><a href="#building-a-set" id="toc-building-a-set" class="nav-link" data-scroll-target="#building-a-set">Building a set</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -2164,7 +2174,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 22, 2025</p>
+      <p class="date">September 23, 2025</p>
     </div>
   </div>
   
@@ -2177,7 +2187,59 @@ vertical-align: -.125em;
 
 
 <p>Back to Portfolio: <a href="https://devoreni.github.io/portfolio/" class="uri">https://devoreni.github.io/portfolio/</a><br> GitHub Project Link: <a href="https://github.com/devoreni/PokemonRandBatGIV" class="uri">https://github.com/devoreni/PokemonRandBatGIV</a></p>
-<p>Project is complete, write up coming soon.</p>
+<section id="background" class="level1">
+<h1>Background</h1>
+<section id="basics-of-pokemon-battles" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-pokemon-battles">Basics of Pokemon Battles</h2>
+<p>Though silly on the surface, a lot goes into competative pokemon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random pokemon is given to each player and from there, they do battle. The problem is thus: pokemon have dozens of potential attacks available to them, some much better others, and while the specific pokemon on a team are random, their sets are not. This means that once you see a pokemon on yours or your opponants team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of pokemon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a pokemon is “Generated”, is has its set entirely randomized, however, this led to the issue where pokemon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where a pokemon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an inteligent algorithm, varied and exciting sets can be created at the press of a button and, every set is guaranteed to be viable.</p>
+</section>
+<section id="building-a-set" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-set">Building a set</h2>
+<p>A Pokemon set consists of the following:</p>
+<ul>
+<li>A chosen pokemon which determine
+<ul>
+<li>The base stats of the pokemon (Hit Points, Attack, Defense, Special Attack, Special Defense, Speed)</li>
+<li>The type(s) of the pokemon (one or two types of 18 possible types which determine offensive and defensive capabilities)</li>
+</ul></li>
+<li>Four Moves
+<ul>
+<li>Each pokemon has around 50 - 80 possible moves, of which 4 can be chosen to “know” for the battle.</li>
+</ul></li>
+<li>An ability
+<ul>
+<li>Each pokemon has 1 - 3 passive abilities, one of which can be chosen.</li>
+</ul></li>
+<li>508 Effort Values
+<ul>
+<li>Every four effort values increase a stat by a single point, up to 252 effort values per stat. 508 is enough to maximize two stats with enough for a single point somewhere else.</li>
+</ul></li>
+<li>A nature
+<ul>
+<li>the nature of a pokemon will remove 10% of a chosen stat and boost another by 10%</li>
+</ul></li>
+<li>Individual Values
+<ul>
+<li>Each stat can have up to 31 points added to it. However, in some senarios, lowing a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move’s type is dependent on the chosen IVs, and in situations where moving after the oponant is beneficial to gain knowledge.</li>
+</ul></li>
+<li>Additional considerations
+<ul>
+<li>Extra “for fun” things can be added to a pokemon to give it a unique feel.
+<ul>
+<li>Shiny pokemon have a different coloration (this changes nothing else)</li>
+<li>The pokeball containing a pokemon has a unique look and animation as it opens</li>
+<li>The gender of a pokemon can have niche battle effects, but is usually just preference</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img role="img" src="assets/PortfolioProjectAssets/Jirachi.png" class="img-fluid figure-img"></p>
+<figcaption>Example Pokemon Set</figcaption>
+</figure>
+</div>
+</section>
+</section>
 
 </main>
 <!-- /main column -->
