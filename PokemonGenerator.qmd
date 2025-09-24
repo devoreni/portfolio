@@ -107,7 +107,7 @@ This single graph can produce a wide variety of Vaporeon movesets. Take the foll
     - Hyper Beam
     - Hydro Pump
         - All out offensive Vaporeon with powerful attacks that put consistent pressure on the opponent.
-- 1 &rarr; 2 &rarr; 4 &rarr; 2 &rarr; 5
+- 1 &rarr; 2 &rarr; 4 &rarr; 5
     - Protect
     - Surf
     - Substitute
@@ -125,3 +125,13 @@ A determanistic algothitm assigns a score for each stat based on the Pokemon's b
 The two stats with the highest point total by the end of the algorithm are assigned 252 EVs. The stat with the highest point total is assigned the positive aspect of the nature and the stat with the lowest point total is assigned the negative aspect.
 
 ![Chart of Possible Natures](assets/PokemonRandBat/NatureChart.png)
+
+## IVs and Extras
+
+A Pokemon will almost always want maximum IVs in every stat, however, there are certain cercumstances in which this is not optimal. Pokemon take confusion damage based on their attack stat; dropping the attack IV to 0 is optimal for pokemon without a way to deal physical damage. The moves Gyro Ball and Trick Room benefit pokemon with less speed so dropping the speed IV to 0 is optimal in that case. Pokemon with the Hidden Power attack (a move that changes type and damage depending on the users IVs) require specific IVs to maximize the damage of Hidden Power and its coverage.
+<br><br>
+A Pokemon's shininess, ball, and gender are randomly decided.
+
+## Held Item
+
+With over a hundred unique items to choose from, and each pokemon only being able to hold a single item, choosing the most optimal becomes a significant task even for a human. With limited time for data collection and training, a random forest model was selected as the machine learning algorithm of choice due to its ability to effectively leverage available data, its predictability, speed, and—most importantly—its high accuracy—consistently outperforming other techniques tested under the same constraints.
