@@ -45,6 +45,8 @@ A Pokemon set consists of the following:
 
 # Project Requirements
 
+## Validation and Verification
+
 The solution will meet the following validation requirements:
 
 - The user will interact with an intuative GUI.
@@ -84,6 +86,10 @@ The solution will meet the following verification requirements:
     - Macros will be limited to the use of config filepaths only.
     - The program will run without any warnings or errors.
         - Running the program with the `-Wb` flag should never produce a warning or an error.
+
+## Selecting Indivudual Pokemon
+
+While selecting and individual Pokemon may seem as simple as randomly grabbing one from a bag and adding it to the team, however, this has an issue: some Pokemon types are represented far more than others, for example, there are only 6 fully evolved Dragon type pokemon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random pokemon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type pokemon will show up far more than any individual water type leading to a stale format where the same Pokemon seemingly show up all the time. Additionally, many Pokemon are dual type pokemon, meaning have have two types, further complicating things. With the first solution, every pokemon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the reletive frequencies of each pokemon is off balance. The program will solve this issue.
 
 # Solution
 
@@ -135,3 +141,6 @@ A Pokemon's shininess, ball, and gender are randomly decided.
 ## Held Item
 
 With over a hundred unique items to choose from, and each Pokemon only being able to hold a single item, choosing the most optimal one becomes a significant task even for a human. With limited time for data collection and training, a random forest model was selected as the machine learning algorithm of choice due to its ability to effectively leverage available data, its predictability, speed, and—most importantly—its high accuracy—consistently outperforming other techniques tested under the same constraints.
+
+## Pokemon Selection
+
