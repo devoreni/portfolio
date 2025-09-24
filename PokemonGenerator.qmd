@@ -85,4 +85,43 @@ The solution will meet the following verification requirements:
     - The program will run without any warnings or errors.
         - Running the program with the `-Wb` flag should never produce a warning or an error.
 
+# Solution
+
+## Moveset
+
+Each Pokemon object is assigned a set of graphs, each with a starting node or nodes. Running depth first search on one of those graphs and taking the first four encountered nodes will return a viable moveset. Checking against a set of visited nodes prevents loops from being an issue and maintaining a stack of nodes along the current path allows for backtracking if a dead end is encountered.
+
+![Example Moveset Graph](assets/PokemonRandBat/Vaporeon.png)
     
+This single graph can produce a wide variety of Vaporeon movesets. Take the following examples:
+
+- 6 &rarr; 7 &rarr; 9 &rarr; 15
+    - Wish
+    - Baton Pass
+    - Helping Hand
+    - Muddy Water
+        - A supportive Vaporeon that heals allies, bolsters their damage, and provides consistent chip damage with the potential upside of a Muddy Water accuracy drop on the opponent.
+- 1 &rarr; 10 &rarr; 12 &rarr; 3
+    - Protect
+    - Shadow Ball
+    - Hyper Beam
+    - Hydro Pump
+        - All out offensive Vaporeon with powerful attacks that put consistent pressure on the opponent.
+- 1 &rarr; 2 &rarr; 4 &rarr; 2 &rarr; 5
+    - Protect
+    - Surf
+    - Substitute
+    - Ice Beam
+        - A balanced Vaporeon focused on dealing consistent damage over the course of a battle.
+
+This aproach also allows for balancing of more and less powerful pokemon in several ways. More powerful pokemon can have more variance in their sets while less powerful pokemon can have tighter, more optamized graphs. The graphs of more power pokemon can include more usually useless moves. In double battles, the move protect is almost mandatory and leaving it out of the graph can significantly dampen their power.
+
+## EVs and Nature
+
+The problem of choosing the optimal nature and optimal EVs can be greatly simplified when making the following assumptions: Due to the extreme variety of Pokemon that could show up on the opponant's team, it is better to have the two most useful stats maxed out rather than attempting to match specific break points; and a Pokemon's EVs and nature can be determined only by its base stats, moveset, and ability.
+<br><br>
+A determanistic algothitm assigns a score for each stat based on the Pokemon's base stats. Then, the algorithm loops through the previously determined moveset of the pokemon to try to find connections and a core identity -- adding and subtracting points as it goes. For example, the move swords dance, even though it is a status move, enhances the users offensive capabilities and thus increases the score for the attack stat, unless, the user does not have a way to take advantage of the attack boost, such as baton passers, who will pass the stat boost to an ally but will not use it themselves. A Pokemon with the move Gyro Ball, which deals greater damage the lower the user's speed stat, will significantly reduce the point total for the speed stat.
+<br><br>
+The two stats with the highest point total by the end of the algorithm are assigned 252 EVs. The stat with the highest point total is assigned the positive aspect of the nature and the stat with the lowest point total is assigned the negative aspect.
+
+![Chart of Possible Natures](assets/PokemonRandBat/NatureChart.png)
