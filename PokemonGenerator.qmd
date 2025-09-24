@@ -144,3 +144,64 @@ With over a hundred unique items to choose from, and each Pokemon only being abl
 
 ## Pokemon Selection
 
+### Variable and Set Definitions
+
+Let $P$ be the set of all Pokémon, $p \in P$.
+Let $T$ be the set of all Pokémon types, $t \in T$.
+
+Let $M: P \to \mathcal{P}(T)$ be a function that maps each Pokémon to its set of types, where $\mathcal{P}(T)$ is the power set of $T$. The number of types for a Pokémon $p$ is given by $|M(p)|$.
+
+Let $w: P \to \mathbb{R}^+$ be a function that assigns a base weight to each Pokémon, where $w_p$ is the base weight for Pokémon $p$.
+
+### 1. Raw Type Counts
+
+The raw count for each type, $R_t$, is calculated by summing the fractional contribution of each Pokémon to that type. A Pokémon contributes $1 / |M(p)|$ to each of its types.
+
+$$
+R_t = \sum_{p \in P \text{ where } t \in M(p)} \frac{1}{|M(p)|} \quad \forall t \in T
+$$
+
+This creates a set of raw type counts, $R = \{R_t | t \in T\}$.
+
+### 2. Smoothed Type Weights
+
+First, calculate the median of the raw type counts, denoted as $\tilde{R}$.
+
+$$
+\tilde{R} = \text{median}(R)
+$$
+
+Next, each individual raw type count $R_t$ is smoothed to produce a smoothed type weight $S_t$. This is done by extrapolating the difference between the median and the raw count. Let $s$ be a smoothing constant, where $s = 1.5$.
+
+$$
+S_t = (\tilde{R} - R_t) \cdot s + R_t \quad \forall t \in T
+$$
+
+This results in a set of smoothed type weights, $S = \{S_t | t \in T\}$.
+
+### 3. Pokémon Scaled Weights
+
+For each Pokémon $p$, a type-based scaler, $\alpha_p$, is calculated. This scaler is the arithmetic mean of the smoothed type weights corresponding to the Pokémon's types.
+
+$$
+\alpha_p = \frac{1}{|M(p)|} \sum_{t \in M(p)} S_t
+$$
+
+The unnormalized scaled weight for each Pokémon, $U_p$, is the product of its base weight $w_p$ and its type-based scaler $\alpha_p$.
+
+$$
+U_p = w_p \cdot \alpha_p
+$$
+
+### 4. Final Probability Distribution
+
+The final probability of any given Pokémon $p$ being chosen, denoted as $W_p$, is its unnormalized scaled weight $U_p$ divided by the sum of all unnormalized scaled weights for all Pokémon in the set $P$. This normalizes the weights so that they sum to 1, forming a probability distribution.
+
+$$
+W_p = \frac{U_p}{\sum_{q \in P} U_q} = \frac{w_p \cdot \frac{1}{|M(p)|} \sum_{t \in M(p)} S_t}{\sum_{q \in P} \left( w_q \cdot \frac{1}{|M(q)|} \sum_{t' \in M(q)} S_{t'} \right)}
+$$
+
+This final formula gives the probability $W_p$ for selecting any Pokémon $p$, balancing its individual base weight with the relative frequency of its type(s).
+
+### Explanation
+
