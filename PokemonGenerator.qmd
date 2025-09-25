@@ -141,6 +141,26 @@ A Pokemon's shininess, ball, and gender are randomly decided.
 ## Held Item
 
 With over a hundred unique items to choose from, and each Pokemon only being able to hold a single item, choosing the most optimal one becomes a significant task even for a human. With limited time for data collection and training, a random forest model was selected as the machine learning algorithm of choice due to its ability to effectively leverage available data, its predictability, speed, and—most importantly—its high accuracy—consistently outperforming other techniques tested under the same constraints.
+<br>
+The input layer for the random forest consists of the following features:
+
+- The types of the Pokemon
+- The ability of the Pokemon
+- The calculated stats of the Pokemon (after applying EVs, IVs, and nature to the base stats)
+- The number of moves in each move category (physical, special, or status)
+- The number of setup moves for each stat
+    - For example, Dragon Dance is an attack setup move and a speed setup move
+    - HP recovery moves are counted as HP setup moves
+    - Evasion and accuracy are counted as stats that can have setup moves
+    - Abilities that affect stats are also counted
+- The number of each type of special effect move that a pokemon has
+    - Included are: draining moves, baton pass, trapping moves, item bestowing moves, multi-hit moves, screens, high critical rate moves, self stat dropping moves, low accuracy moves, charge moves, and multi target moves.
+- The number of unique weaknesses, quad weaknesses, resistances, and quad resistences
+- A "Bulk Score" which is a rough calculation of how tough a Pokemon is to knock out
+- An "Offense Score" which is a rough calculation of a Pokemon's offensive capabilites
+- The type coverage of the Pokemon's damage dealing moves
+
+After a Pokemon is passed through the model, the likely items are assigned weights based on the model's confidence and added to a list. If the model has low confidence overall, super effective type berries are added to the list. Super effective type berries are one time consumable items that reduce the damage of an incoming super effective hit by 50%. Only relevant type berries are added to the list, highly prioriztizing a berry if the pokemon also has a quad weakness. If a pokemon would be weak to a type but is immune from another type or ability, the berry is not added. Finally, from the list, a random item is chosen based on their weights.
 
 ## Pokemon Selection
 
@@ -221,3 +241,40 @@ The ideal outcome is not perfect uniformity, but rather a corrective rebalancing
 
 1. Reduces the prevalence of Pokémon with common types (e.g., Normal, Water), preventing them from dominating the selection pool.
 1. Boosts the representation of Pokémon with rarer types (e.g., Dragon, Ice, Steel), ensuring they appear as viable options.
+
+## Batch Selection and Intra-Team Balancing
+An additional mechanism is required to guarantee diversity within a single generated batch of Pokémon. This is accomplished through a dynamic, rule-based selection process that limits type and species duplication for each user request.
+The algorithm iterates to fill the number of requested slots. For each slot, it performs up to 50 attempts to select a valid Pokémon that satisfies the following balancing constraints:
+
+1. **Initial Weighted Selection:** A candidate Pokémon is first chosen using the globally weighted random selection process described previously.
+1. **Dynamic Type Capping:** The candidate Pokémon is then evaluated against the types of Pokémon already accepted into the current batch. This system imposes soft and hard    limits on the count of any single type within the batch:
+    - **Permitted Zone:** If the count for each of the Pokémon's types is below a "soft" threshold, defined as `max(floor(batch_size / 4), 2)`, the Pokémon is accepted without penalty.
+    - **Probabilistic Penalty Zone:** If a type's count is between the soft threshold and a "hard" threshold of `max(floor(batch_size / 3.3), 2)`, the Pokémon's probability of being accepted is multiplicatively reduced. For a dual-type Pokémon, this penalty can be applied twice, significantly lowering its chance of inclusion.
+    - **Rejection Zone:** If any of the Pokémon's types exceeds the hard threshold, its probability of acceptance becomes zero, and it is immediately rejected.
+1. **Species Duplication Check:** If the candidate Pokémon passes the type-capping evaluation, it is checked to ensure the same species is not already present in the batch. If it is a duplicate, it is rejected.
+
+If a candidate is rejected at any stage, the algorithm makes another attempt (up to the 50-attempt limit) until a suitable Pokémon is found. This multi-stage process ensures that for a standard team of 6, a given type will rarely appear more than twice and will effectively never appear three or more times, producing a well-balanced and varied result for the user.
+
+# Tools Used
+
+## ZODB
+
+Storing persistent objects, probabilities, data, and information in the same schema would be cumbersome and unoptimal for this project. Instead, the NoSQL database ZODB was used. ZODB, or Z Object Database allows for native object persistence. Objects can be modified after they are stored in the database, easily read with a key, and can be of any shape, size, or type. It fits the use case perfectly and greatly simplifies all aspects of database managment for this project.
+
+## Scikit-learn
+
+Scikit-learn was used for handling item selection, specifically, the Random Forest Regressor. Though several machine learning techniques and algorithms were tested, the random forest proved superiority for the task by a significant margin. The parameters for the random forest which showed the best results were:
+
+- `min_leaf_samples=1`
+- `n_estimators=100`
+- `random_state=42`
+
+## Pickle
+
+Pickle allows for persistent model storage. Storing the model as a file, opening it, and unpickling the model is significantly faster than genertating the model at runtime.
+
+## PyQt6
+
+PyQT6 serves as the front end graphical user interface (GUI).
+
+# Results
