@@ -144,6 +144,8 @@ With over a hundred unique items to choose from, and each Pokemon only being abl
 
 ## Pokemon Selection
 
+Pokemon selection happens in two stages, first, each pokemon is assigned a base weight. This weight is manually assigned, loosly based on the popularity and viablility of a pokemon. In general: popular Pokemon have a base weight of ~2, balanced Pokemon have a base weight of ~2, underpowered Pokemon have a base weight of 1 - 2, weak Pokemon have a base weight < 1, overpowered pokemon have a base weight < 1. Then smoothing of types occurs as follows:
+
 ### Variable and Set Definitions
 
 Let $P$ be the set of all Pokémon, $p \in P$.
@@ -203,5 +205,19 @@ $$
 
 This final formula gives the probability $W_p$ for selecting any Pokémon $p$, balancing its individual base weight with the relative frequency of its type(s).
 
-### Explanation
+### Justification for $s=1.5$
 
+The smoothing factor, $s$, is a critical parameter for tuning the weighting algorithm. Its purpose is to ensure a balanced and diverse distribution of Pokémon, moving beyond the simple frequencies of types and individual species in the base data. An optimal value of $s$ must balance the representation of both Pokémon types and individual Pokémon.
+
+![Graph 1](assets/PokemonRandBat/TypeHeatmap.png)
+
+At s = 0 (no smoothing), the distribution reflects the natural imbalance in the data, with types like Normal and Water (red, high counts) being heavily overrepresented, while types like Dragon and Ghost (blue, low counts) are underrepresented. As s increases, these counts begin to converge, indicating a more balanced type distribution.
+
+![Graph 2](assets/PokemonRandBat/IndividualHeatmap.png)
+
+Graph 2 provides a more granular view, showing the counts of select individual Pokémon across 64,000 random selections (per $s$ value). While a smoothing factor in the range of s = 0.9 to 1.0 produces the most numerically uniform distribution (indicated by the consistent green/yellow coloring), this level of smoothing is not ideal. A purely uniform distribution fails to actively counteract the inherent rarity and commonality of certain Pokémon types.
+<br>
+The ideal outcome is not perfect uniformity, but rather a corrective rebalancing. A smoothing factor of s = 1.4 to 1.5 achieves this effectively. At this level, the algorithm:
+
+1. Reduces the prevalence of Pokémon with common types (e.g., Normal, Water), preventing them from dominating the selection pool.
+1. Boosts the representation of Pokémon with rarer types (e.g., Dragon, Ice, Steel), ensuring they appear as viable options.
