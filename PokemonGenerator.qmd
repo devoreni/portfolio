@@ -14,34 +14,34 @@ GitHub Project Link: <https://github.com/devoreni/PokemonRandBatGIV>
 
 # Background
 
-## Basics of Pokemon Battles
-Though seemingly silly on the surface, a lot goes into competitive Pokemon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random Pokemon is given to each player and from there, they do battle. The problem is this: Pokemon have dozens of potential attacks available to them, some much better others, and while the specific Pokemon on a team are random, their sets are not. This means that once you see a Pokemon on your or your opponent's team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of Pokemon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a Pokemon is "Generated", is has its set entirely randomized, however, this led to the issue where Pokemon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where a Pokemon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.
+## Basics ofPokémon Battles
+Though seemingly silly on the surface, a lot goes into competitivePokémon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six randomPokémon is given to each player and from there, they do battle. The problem is this:Pokémon have dozens of potential attacks available to them, some much better others, and while the specificPokémon on a team are random, their sets are not. This means that once you see aPokémon on your or your opponent's team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds ofPokémon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when aPokémon is "Generated", is has its set entirely randomized, however, this led to the issue wherePokémon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to senarios where aPokémon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.
 
 ## Building a set
 
-A Pokemon set consists of the following:
+APokémon set consists of the following:
 
-- A chosen Pokemon which determine
-    - The base stats of the Pokemon (Hit Points, Attack, Defense, Special Attack, Special Defense, Speed)
-    - The type(s) of the Pokemon (one or two types of 18 possible types which determine offensive and defensive capabilities)
+- A chosenPokémon which determine
+    - The base stats of thePokémon (Hit Points, Attack, Defense, Special Attack, Special Defense, Speed)
+    - The type(s) of thePokémon (one or two types of 18 possible types which determine offensive and defensive capabilities)
 - Four Moves
-    - Each Pokemon has around 50 - 80 possible moves, of which 4 can be chosen to "know" for the battle.
+    - EachPokémon has around 50 - 80 possible moves, of which 4 can be chosen to "know" for the battle.
 - An ability
-    - Each Pokemon has 1 - 3 passive abilities, one of which can be chosen.
+    - EachPokémon has 1 - 3 passive abilities, one of which can be chosen.
 - 508 Effort Values
     - Every four effort values increase a stat by a single point, up to 252 effort values per stat. 508 is enough to maximize two stats with enough for a single point somewhere else.
 - A nature
-    - the nature of a Pokemon will remove 10% of a chosen stat and boost another by 10%
+    - the nature of aPokémon will remove 10% of a chosen stat and boost another by 10%
 - Individual Values
     - Each stat can have up to 31 points added to it. However, in some senarios, lowing a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move's type is dependent on the chosen IVs, and in situations where moving after the oponant is beneficial to gain knowledge.
 - Additional considerations
-    - Extra "for fun" things can be added to a Pokemon to give it a unique feel.
-        - Shiny Pokemon have a different coloration (this changes nothing else)
-        - The pokeball containing a Pokemon has a unique look and animation as it opens
-        - The gender of a Pokemon can have niche battle effects, but is usually just preference
+    - Extra "for fun" things can be added to aPokémon to give it a unique feel.
+        - ShinyPokémon have a different coloration (this changes nothing else)
+        - The pokeball containing aPokémon has a unique look and animation as it opens
+        - The gender of aPokémon can have niche battle effects, but is usually just preference
 
 
-![Example Pokemon Set](assets/PokemonRandBat/Jirachi.png){width=80%}
+![ExamplePokémon Set](assets/PokemonRandBat/Jirachi.png){width=80%}
 
 # Project Requirements
 
@@ -50,19 +50,19 @@ A Pokemon set consists of the following:
 The solution will meet the following validation requirements:
 
 - The user will interact with an intuative GUI.
-- The user will be able to specify the number of Pokemon to be generated.
-- The Pokemon generated will have a bananced distribution.
+- The user will be able to specify the number ofPokémon to be generated.
+- ThePokémon generated will have a bananced distribution.
     - There will not be an overabundance of any type in the batch.
-- The movesets of the Pokemon will be competatively viable and balanced across all Pokemon.
-    - Pokemon with higher stats and better move options (like the legendary Kyogre) should compete on even ground with less powerful Pokemon.
-- A Pokemon's EVs and nature will match the identity of the Pokemon
-    - A Pokemon may function as a wall or an attacker based on its moves. The EV spread and nature should be chosen to match the use of the Pokemon.
-- A Pokemon's IVs should match the identity of the Pokemon and be valid if the Pokemon has the Hidden Power attack.
-- An optimal item will be chosen for the Pokemon.
-- Pokemon will feel unique
-    - A Pokemon will have a chance to be shiny
-    - A Pokemon will have a ball
-    - A Pokemon will have a gender
+- The movesets of thePokémon will be competatively viable and balanced across allPokémon.
+    -Pokémon with higher stats and better move options (like the legendary Kyogre) should compete on even ground with less powerfulPokémon.
+- APokémon's EVs and nature will match the identity of thePokémon
+    - APokémon may function as a wall or an attacker based on its moves. The EV spread and nature should be chosen to match the use of thePokémon.
+- APokémon's IVs should match the identity of thePokémon and be valid if thePokémon has the Hidden Power attack.
+- An optimal item will be chosen for thePokémon.
+-Pokémon will feel unique
+    - APokémon will have a chance to be shiny
+    - APokémon will have a ball
+    - APokémon will have a gender
 
 The solution will meet the following verification requirements:
 
@@ -87,15 +87,17 @@ The solution will meet the following verification requirements:
     - The program will run without any warnings or errors.
         - Running the program with the `-Wb` flag should never produce a warning or an error.
 
-## Selecting Indivudual Pokemon
+Although the program is not safety-critical, this design desicion was made as a commitment to professional software engineering practices.
 
-While selecting and individual Pokemon may seem as simple as randomly grabbing one from a bag and adding it to the team, however, this has an issue: some Pokemon types are represented far more than others, for example, there are only 6 fully evolved Dragon type pokemon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random pokemon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type pokemon will show up far more than any individual water type leading to a stale format where the same Pokemon seemingly show up all the time. Additionally, many Pokemon are dual type pokemon, meaning have have two types, further complicating things. With the first solution, every pokemon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the reletive frequencies of each pokemon is off balance. The program will solve this issue.
+## Selecting IndivudualPokémon
+
+While selecting and individualPokémon may seem as simple as randomly grabbing one from a bag and adding it to the team, however, this has an issue: somePokémon types are represented far more than others, for example, there are only 6 fully evolved Dragon typePokémon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a randomPokémon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon typePokémon will show up far more than any individual water type leading to a stale format where the samePokémon seemingly show up all the time. Additionally, manyPokémon are dual typePokémon, meaning have have two types, further complicating things. With the first solution, everyPokémon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the reletive frequencies of eachPokémon is off balance. The program will solve this issue.
 
 # Solution
 
 ## Moveset
 
-Each Pokemon object is assigned a set of graphs, each with a starting node or nodes. Running depth first search on one of those graphs and taking the first four encountered nodes will return a viable moveset. Checking against a set of visited nodes prevents loops from being an issue and maintaining a stack of nodes along the current path allows for backtracking if a dead end is encountered.
+EachPokémon object is assigned a set of graphs, each with a starting node or nodes. Running depth first search on one of those graphs and taking the first four encountered nodes will return a viable moveset. Checking against a set of visited nodes prevents loops from being an issue and maintaining a stack of nodes along the current path allows for backtracking if a dead end is encountered. Depth first search allows for the exploration of paths of synergistic moves to their conclusion, ensureing a coherent moveset.
 
 ![Example Moveset Graph](assets/PokemonRandBat/Vaporeon.png)
     
@@ -120,13 +122,13 @@ This single graph can produce a wide variety of Vaporeon movesets. Take the foll
     - Ice Beam
         - A balanced Vaporeon focused on dealing consistent damage over the course of a battle.
 
-This approach also allows for balancing of more and less powerful Pokemon in several ways. More powerful Pokemon can have more variance in their sets while less powerful Pokemon can have tighter, more optimized graphs. The graphs of more power Pokemon can include more usually useless moves. In double battles, the move protect is almost mandatory and leaving it out of the graph can significantly dampen their power.
+This approach also allows for balancing of more and less powerfulPokémon in several ways. More powerfulPokémon can have more variance in their sets while less powerfulPokémon can have tighter, more optimized graphs. The graphs of more powerPokémon can include more usually useless moves. In double battles, the move protect is almost mandatory and leaving it out of the graph can significantly dampen their power.
 
 ## EVs and Nature
 
-The problem of choosing the optimal nature and optimal EVs can be greatly simplified when making the following assumptions: Due to the extreme variety of Pokemon that could show up on the opponent's team, it is better to have the two most useful stats maxed out rather than attempting to match specific break points; and a Pokemon's EVs and nature can be determined only by its base stats, moveset, and ability.
+The problem of choosing the optimal nature and optimal EVs can be greatly simplified when making the following assumptions: Due to the extreme variety ofPokémon that could show up on the opponent's team, it is better to have the two most useful stats maxed out rather than attempting to match specific break points; and aPokémon's EVs and nature can be determined only by its base stats, moveset, and ability.
 <br><br>
-A deterministic algothitm assigns a score for each stat based on the Pokemon's base stats. Then, the algorithm loops through the previously determined moveset of the Pokemon to try to find connections and a core identity -- adding and subtracting points as it goes. For example, the move Swords Dance, even though it is a status move, enhances the users offensive capabilities and thus increases the score for the attack stat, unless, the user does not have a way to take advantage of the attack boost, such as baton passers, who will pass the stat boost to an ally but will not use it themselves. A Pokemon with the move Gyro Ball, which deals greater damage the lower the user's speed stat, will significantly reduce the point total for the speed stat.
+A deterministic algothitm assigns a score for each stat based on thePokémon's base stats. Then, the algorithm loops through the previously determined moveset of thePokémon to try to find connections and a core identity -- adding and subtracting points as it goes. For example, the move Swords Dance, even though it is a status move, enhances the users offensive capabilities and thus increases the score for the attack stat, unless, the user does not have a way to take advantage of the attack boost, such as baton passers, who will pass the stat boost to an ally but will not use it themselves. APokémon with the move Gyro Ball, which deals greater damage the lower the user's speed stat, will significantly reduce the point total for the speed stat.
 <br><br>
 The two stats with the highest point total by the end of the algorithm are assigned 252 EVs. The stat with the highest point total is assigned the positive aspect of the nature and the stat with the lowest point total is assigned the negative aspect.
 
@@ -134,37 +136,37 @@ The two stats with the highest point total by the end of the algorithm are assig
 
 ## IVs and Extras
 
-A Pokemon will almost always want maximum IVs in every stat, however, there are certain circumstances in which this is not optimal. Pokemon take confusion damage based on their attack stat; dropping the attack IV to 0 is optimal for Pokemon without a way to deal physical damage. The moves Gyro Ball and Trick Room benefit Pokemon with less speed so dropping the speed IV to 0 is optimal in that case. Pokemon with the Hidden Power attack (a move that changes type and damage depending on the users IVs) require specific IVs to maximize the damage of Hidden Power and its coverage.
+APokémon will almost always want maximum IVs in every stat, however, there are certain circumstances in which this is not optimal.Pokémon take confusion damage based on their attack stat; dropping the attack IV to 0 is optimal forPokémon without a way to deal physical damage. The moves Gyro Ball and Trick Room benefitPokémon with less speed so dropping the speed IV to 0 is optimal in that case.Pokémon with the Hidden Power attack (a move that changes type and damage depending on the users IVs) require specific IVs to maximize the damage of Hidden Power and its coverage.
 <br><br>
-A Pokemon's shininess, ball, and gender are randomly decided.
+APokémon's shininess, ball, and gender are randomly decided.
 
 ## Held Item
 
-With over a hundred unique items to choose from, and each Pokemon only being able to hold a single item, choosing the most optimal one becomes a significant task even for a human. With limited time for data collection and training, a random forest model was selected as the machine learning algorithm of choice due to its ability to effectively leverage available data, its predictability, speed, and—most importantly—its high accuracy—consistently outperforming other techniques tested under the same constraints.
+With over a hundred unique items to choose from, and eachPokémon only being able to hold a single item, choosing the most optimal one becomes a significant task even for a human. With limited time for data collection and training, a random forest model was selected as the machine learning algorithm of choice due to its ability to effectively leverage available data, its predictability, speed, and—most importantly—its high accuracy—consistently outperforming other techniques tested under the same constraints.
 <br>
 The input layer for the random forest consists of the following features:
 
-- The types of the Pokemon
-- The ability of the Pokemon
-- The calculated stats of the Pokemon (after applying EVs, IVs, and nature to the base stats)
+- The types of thePokémon
+- The ability of thePokémon
+- The calculated stats of thePokémon (after applying EVs, IVs, and nature to the base stats)
 - The number of moves in each move category (physical, special, or status)
 - The number of setup moves for each stat
     - For example, Dragon Dance is an attack setup move and a speed setup move
     - HP recovery moves are counted as HP setup moves
     - Evasion and accuracy are counted as stats that can have setup moves
     - Abilities that affect stats are also counted
-- The number of each type of special effect move that a pokemon has
+- The number of each type of special effect move that aPokémon has
     - Included are: draining moves, baton pass, trapping moves, item bestowing moves, multi-hit moves, screens, high critical rate moves, self stat dropping moves, low accuracy moves, charge moves, and multi target moves.
 - The number of unique weaknesses, quad weaknesses, resistances, and quad resistences
-- A "Bulk Score" which is a rough calculation of how tough a Pokemon is to knock out
-- An "Offense Score" which is a rough calculation of a Pokemon's offensive capabilites
-- The type coverage of the Pokemon's damage dealing moves
+- A "Bulk Score" which is a rough calculation of how tough aPokémon is to knock out
+- An "Offense Score" which is a rough calculation of aPokémon's offensive capabilites
+- The type coverage of thePokémon's damage dealing moves
 
-After a Pokemon is passed through the model, the likely items are assigned weights based on the model's confidence and added to a list. If the model has low confidence overall, super effective type berries are added to the list. Super effective type berries are one time consumable items that reduce the damage of an incoming super effective hit by 50%. Only relevant type berries are added to the list, highly prioriztizing a berry if the pokemon also has a quad weakness. If a pokemon would be weak to a type but is immune from another type or ability, the berry is not added. Finally, from the list, a random item is chosen based on their weights.
+After a Pokémon is passed through the model, the likely items are assigned weights based on the model's confidence and added to a list. If the model has low confidence overall, super effective type berries are added to the list. Super effective type berries are one time consumable items that reduce the damage of an incoming super effective hit by 50%. Only relevant type berries are added to the list, highly prioriztizing a berry if thePokémon also has a quad weakness. If aPokémon would be weak to a type but is immune from another type or ability, the berry is not added. Finally, from the list, a random item is chosen based on their weights.
 
 ### Special Cases
 
-Some Pokemon must hold a certain item, or, their viability is tied to holding an item. In this case, the default implementation does not meet the specific requirements, so a `Strategy Pattern` is employed. Due to the way that ZODB (the NoSQL database used for this project) stores objects persistently, a very specific design pattern must be used.
+SomePokémon must hold a certain item, or, their viability is tied to holding an item. In this case, the default implementation does not meet the specific requirements, so a `Strategy Pattern` is employed. Due to the way that ZODB (the NoSQL database used for this project) stores objects persistently (it cannot pickle instance methods directly), a very specific design pattern must be used.
 ```{python}
 def foo():
     return 'foo'
@@ -193,9 +195,9 @@ print(obj_2)
 print(obj_3)
 ```
 
-## Pokemon Selection
+##Pokémon Selection
 
-Pokemon selection happens in two stages, first, each pokemon is assigned a base weight. This weight is manually assigned, loosly based on the popularity and viablility of a pokemon. In general: popular Pokemon have a base weight of ~2, balanced Pokemon have a base weight of ~2, underpowered Pokemon have a base weight of 1 - 2, weak Pokemon have a base weight < 1, overpowered pokemon have a base weight < 1. Then smoothing of types occurs as follows:
+Pokémon selection happens in two stages, first, eachPokémon is assigned a base weight. This weight is manually assigned, loosly based on the popularity and viablility of aPokémon. In general: popularPokémon have a base weight of ~2, balancedPokémon have a base weight of ~2, underpoweredPokémon have a base weight of 1 - 2, weakPokémon have a base weight < 1, overpoweredPokémon have a base weight < 1. Then smoothing of types occurs as follows:
 
 ### Variable and Set Definitions
 
@@ -295,6 +297,8 @@ The project's data, which includes complex Pokémon objects, statistical probabi
 ## Scikit-learn
 
 After testing several algorithms, a Random Forest Regressor demonstrated superior performance due to its ability to model complex, non-linear interactions and its inherent resistance to overfitting. The model was trained with `n_estimators=100` and `min_samples_leaf=1` for a balance of performance and precision, and a fixed `random_state` was used to ensure model reproducibility.
+<br>
+The machine learning techniques tested were: a neural network, decision tree, support vector machine (linearSVC, NuSVC and SVC), and random forest. The random forest produced the best results followed by the decision tree. None of the other models produced acceptable results.
 
 ## Pickle
 
@@ -308,7 +312,7 @@ The application required a responsive and intuitive graphical user interface (GU
 
 ## User Experience
 
-The product is simple, clean, and intuative. Users have control over how many pokemon are generated at a time. Clicking on a pokeball reveals the Pokemon inside. The Battle tab shows the Pokemon's moves, while the Stats tab shows the Pokemon's stats and nature. The copy button allows users to copy the Pokemon in a universal format to their clipboard to paste into other applications where that Pokemon can be used. For example, pasting a copied Pokemon into PkHex allows users to use that Pokemon in a real Pokemon game; pasting into the online battle simulator Pokemon Showdown will allow the pokemon to be used in battle against other players.
+The product is simple, clean, and intuative. Users have control over how manyPokémon are generated at a time. Clicking on a pokeball reveals thePokémon inside. The Battle tab shows thePokémon's moves, while the Stats tab shows thePokémon's stats and nature. The copy button allows users to copy thePokémon in a universal format to their clipboard to paste into other applications where thatPokémon can be used. For example, pasting a copiedPokémon into PkHex allows users to use thatPokémon in a realPokémon game; pasting into the online battle simulatorPokémon Showdown will allow thePokémon to be used in battle against other players.
 
 ![Screenshot of the Application](assets/PokemonRandBat/Yanmega.png)
 
@@ -320,27 +324,25 @@ The system has been fully verified though automated unit testing. Every potentia
 
 ![Passing Verification Tests](assets/PokemonRandBat/VerificationTest.png)
 
-All functions use type hints for parameter and return values. Static analysis indicates that all functions are passed the correct values. If further verification is needed, functions check their validity. Ex. if a function is passed a database connection, the connection is tested before it is used.
+All functions use type hints for parameter and return values. Static analysis indicates that all functions are passed the correct values. If further verification is needed, functions check their validity. Ex. if a function is passed a database connection, the connection is tested before it is used. All paths are robust and handled from a config file; the program can be run from any directory with any configuration. All loops are guaranteed to exit without the use of a break and no goto statements, setjmp or longjmp constructs, or direct or indirect recursion is used. The entire program runs without warnings or errors.
 
 ### Validation Testing
 
-To develop the logic for EVs and Natures, tests were constructed for nearly every Pokemon archetype. This test driven development technique was then used to build a robust algorithm for detemining the nature and EVs of a Pokemon.
+To develop the logic for EVs and Natures, tests were constructed for nearly everyPokémon archetype. This test driven development technique was then used to build a robust algorithm for detemining the nature and EVs of aPokémon.
 
 ![Passing Validation Tests](assets/PokemonRandBat/ValidationTest.png)
 
-The program successfully creates dynamic and interesting sets for Generation IV double battles.
+The program successfully creates dynamic and interesting sets for Generation IV double battles. The image below shows seven different Empoleons generated by the program: a bulky physical attacker, a utility special attacker with Knock Off, a utility physical attacker, a utility special attacker with Roar, a specially offensive attacker, a shiny setup physical attacker, and a setup special attacker. Each one has a tailored nature, item, and stats.
 
-![Examples of Set Diversity for a Single Pokemon](assets/PokemonRandBat/Empoleon.png)
+![Examples of Set Diversity for a SinglePokémon](assets/PokemonRandBat/Empoleon.png)
 
-Pokemon are in general balanced. No pokemon is outrageously over or unerpowered. In the below example, Rayquaza, a legendary with immense power, is given a "mixed" attacking set with Bulk Up. While still powerful, this set is more creative and less straightforward than its most common and overwhelmingly powerful competitive builds, such as those using Dragon Dance.
-In contrast, Sableye, a Pokémon with far weaker stats, is perfectly optimized for its role as a defensive counter. Its moveset, featuring Will-O-Wisp to cripple physical attackers and recovery moves to stay healthy, is designed specifically to shut down threats like this Rayquaza.
-By steering Powerful Pokémon away from their most dominant strategy, and ensuring weaker Pokemon are far more optimized, the algorithm creates balanced and engaging sets, rewarding strategy over raw power.
+Pokemon are in general balanced. NoPokémon is outrageously over or unerpowered. In the below example, Rayquaza, a legendary with immense power, is given a "mixed" attacking set with Bulk Up. While still powerful, this set is more creative and less straightforward than its most common and overwhelmingly powerful competitive builds, such as those using Dragon Dance. In contrast, Sableye, a Pokémon with far weaker stats, is perfectly optimized for its role as a defensive counter. Its moveset, featuring Will-O-Wisp to cripple physical attackers and recovery moves to stay healthy, is designed specifically to shut down threats like this Rayquaza. By steering Powerful Pokémon away from their most dominant strategy, and ensuring weakerPokémon are far more optimized, the algorithm creates balanced and engaging sets, rewarding strategy over raw power.
 
 ![Comparison of Rayquaza and Sableye](assets/PokemonRandBat/PokemonComparison.png)
 
 ### Fuzzing
 
-The GUI was fuzzed for 10+ hours, during which, no issues were found and no crashes occured.
+The GUI was fuzzed for 10+ hours, during which, no issues were found and no crashes occured. Users tested all functionality thoroughly for any mistakes, typos, or inaccuracies.
 
 ## Releases
 
