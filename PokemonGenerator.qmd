@@ -320,21 +320,27 @@ The system has been fully verified though automated unit testing. Every potentia
 
 ![Passing Verification Tests](assets/PokemonRandBat/VerificationTest.png)
 
+All functions use type hints for parameter and return values. Static analysis indicates that all functions are passed the correct values. If further verification is needed, functions check their validity. Ex. if a function is passed a database connection, the connection is tested before it is used.
+
 ### Validation Testing
 
-To develop the logic for EVs and Natures, tests were constructed for nearly every Pokemon archetype. The test driven development technique was then used to build a robust algorithm for detemining the nature and EVs of a Pokemon.
+To develop the logic for EVs and Natures, tests were constructed for nearly every Pokemon archetype. This test driven development technique was then used to build a robust algorithm for detemining the nature and EVs of a Pokemon.
 
 ![Passing Validation Tests](assets/PokemonRandBat/ValidationTest.png)
-
-### Fuzzing
-
-The GUI was fuzzed for 10+ hours, during which, no issues were found and no crashes occured.
-
-## Set Diversity
 
 The program successfully creates dynamic and interesting sets for Generation IV double battles.
 
 ![Examples of Set Diversity for a Single Pokemon](assets/PokemonRandBat/Empoleon.png)
+
+Pokemon are in general balanced. No pokemon is outrageously over or unerpowered. In the below example, Rayquaza, a legendary with immense power, is given a "mixed" attacking set with Bulk Up. While still powerful, this set is more creative and less straightforward than its most common and overwhelmingly powerful competitive builds, such as those using Dragon Dance.
+In contrast, Sableye, a Pokémon with far weaker stats, is perfectly optimized for its role as a defensive counter. Its moveset, featuring Will-O-Wisp to cripple physical attackers and recovery moves to stay healthy, is designed specifically to shut down threats like this Rayquaza.
+By steering Powerful Pokémon away from their most dominant strategy, and ensuring weaker Pokemon are far more optimized, the algorithm creates balanced and engaging sets, rewarding strategy over raw power.
+
+![Comparison of Rayquaza and Sableye](assets/PokemonRandBat/PokemonComparison.png)
+
+### Fuzzing
+
+The GUI was fuzzed for 10+ hours, during which, no issues were found and no crashes occured.
 
 ## Releases
 
