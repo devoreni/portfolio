@@ -162,6 +162,37 @@ The input layer for the random forest consists of the following features:
 
 After a Pokemon is passed through the model, the likely items are assigned weights based on the model's confidence and added to a list. If the model has low confidence overall, super effective type berries are added to the list. Super effective type berries are one time consumable items that reduce the damage of an incoming super effective hit by 50%. Only relevant type berries are added to the list, highly prioriztizing a berry if the pokemon also has a quad weakness. If a pokemon would be weak to a type but is immune from another type or ability, the berry is not added. Finally, from the list, a random item is chosen based on their weights.
 
+### Special Cases
+
+Some Pokemon must hold a certain item, or, their viability is tied to holding an item. In this case, the default implementation does not meet the specific requirements, so a `Strategy Pattern` is employed. Due to the way that ZODB (the NoSQL database used for this project) stores objects persistently, a very specific design pattern must be used.
+```{python}
+def foo():
+    return 'foo'
+def bar():
+    return 'bar'
+
+function_holder = {'foo': foo, 'bar': bar}
+
+class A():
+    def __init__(self, custom_func = None):
+        self.custom_func = custom_func
+
+    def __str__(self):
+        if to_str := function_holder.get(self.custom_func):
+            return to_str()
+        else:
+            return 'no custom func'
+    
+
+obj_1 = A()
+obj_2 = A(custom_func = 'foo')
+obj_3 = A(custom_func = 'bar')
+
+print(obj_1)
+print(obj_2)
+print(obj_3)
+```
+
 ## Pokemon Selection
 
 Pokemon selection happens in two stages, first, each pokemon is assigned a base weight. This weight is manually assigned, loosly based on the popularity and viablility of a pokemon. In general: popular Pokemon have a base weight of ~2, balanced Pokemon have a base weight of ~2, underpowered Pokemon have a base weight of 1 - 2, weak Pokemon have a base weight < 1, overpowered pokemon have a base weight < 1. Then smoothing of types occurs as follows:
