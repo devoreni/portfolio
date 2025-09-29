@@ -15,7 +15,7 @@ GitHub Project Link: <https://github.com/devoreni/PokemonRandBatGIV>
 # Background
 
 ## Basics of Pokémon Battles
-Though seemingly silly on the surface, a lot goes into competitive Pokémon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random Pokémon is given to each player and from there, they do battle. The problem is this: Pokémon have dozens of potential attacks available to them, some much better others, and while the specific Pokémon on a team are random, their sets are not. This means that once you see a Pokémon on your or your opponent's team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of Pokémon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a Pokémon is "Generated", is has its set entirely randomized, however, this led to the issue where Pokémon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to scenarios where a Pokémon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.
+Though seemingly silly on the surface, a lot goes into competitive Pokémon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random Pokémon is given to each player and from there, they do battle. The problem is this: Pokémon have dozens of potential attacks available to them, some much better others, and while the specific Pokémon on a team are random, their sets are not. This means that once you see a Pokémon on your or your opponent's team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of Pokémon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a Pokémon is "Generated", it has its set entirely randomized, however, this led to the issue where Pokémon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to scenarios where a Pokémon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.
 
 ## Building a set
 
@@ -33,7 +33,7 @@ A Pokémon set consists of the following:
 - A nature
     - the nature of a Pokémon will remove 10% of a chosen stat and boost another by 10%
 - Individual Values
-    - Each stat can have up to 31 points added to it. However, in some scenarios, lowing a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move's type is dependent on the chosen IVs, and in situations where moving after the opponent is beneficial to gain knowledge.
+    - Each stat can have up to 31 points added to it. However, in some scenarios, lowering a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move's type is dependent on the chosen IVs, and in situations where moving after the opponent is beneficial to gain knowledge.
 - Additional considerations
     - Extra "for fun" things can be added to a Pokémon to give it a unique feel.
         - Shiny Pokémon have a different coloration (this changes nothing else)
@@ -91,7 +91,7 @@ Although the program is not safety-critical, this design desicion was made as a 
 
 ## Selecting Individual Pokémon
 
-While selecting and individual Pokémon may seem as simple as randomly grabbing one from a bag and adding it to the team, however, this has an issue: some Pokémon types are represented far more than others, for example, there are only 6 fully evolved Dragon type Pokémon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random Pokémon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type Pokémon will show up far more than any individual water type leading to a stale format where the same Pokémon seemingly show up all the time. Additionally, many Pokémon are dual type Pokémon, meaning have have two types, further complicating things. With the first solution, every Pokémon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the relative frequencies of each Pokémon is off balance. The program will solve this issue.
+While selecting and individual Pokémon may seem as simple as randomly grabbing one from a bag and adding it to the team, it has an issue: some Pokémon types are represented far more than others. For example, there are only 6 fully evolved Dragon type Pokémon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random Pokémon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type Pokémon will show up far more than any individual water type leading to a stale format where the same Pokémon seemingly show up all the time. Additionally, many Pokémon are dual type Pokémon, meaning have have two types, further complicating things. With the first solution, every Pokémon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the relative frequencies of each Pokémon is off balance. The program will solve this issue.
 
 # Solution
 
@@ -197,7 +197,7 @@ print(obj_3)
 
 ## Pokémon Selection
 
-Pokémon selection happens in two stages, first, each Pokémon is assigned a base weight. This weight is manually assigned, loosely based on the popularity and viability of a Pokémon. In general: popular Pokémon have a base weight of ~2, balanced Pokémon have a base weight of ~2, underpowered Pokémon have a base weight of 1 - 2, weak Pokémon have a base weight < 1, overpowered Pokémon have a base weight < 1. Then smoothing of types occurs as follows:
+Pokémon selection happens in two stages; first, each Pokémon is assigned a base weight. This weight is manually assigned, loosely based on the popularity and viability of a Pokémon. In general: popular Pokémon have a base weight of ~2, balanced Pokémon have a base weight of ~2, underpowered Pokémon have a base weight of 1 - 2, weak Pokémon have a base weight < 1, overpowered Pokémon have a base weight < 1. Then smoothing of types occurs as follows:
 
 ### Variable and Set Definitions
 
@@ -236,13 +236,13 @@ This results in a set of smoothed type weights, $S = \{S_t | t \in T\}$.
 
 ### 3. Pokémon Scaled Weights
 
-For each Pokémon $p$, a type-based scaler, $\alpha_p$, is calculated. This scaler is the arithmetic mean of the smoothed type weights corresponding to the Pokémon's types.
+For each Pokémon $p$, a type-based scalar, $\alpha_p$, is calculated. This scalar is the arithmetic mean of the smoothed type weights corresponding to the Pokémon's types.
 
 $$
 \alpha_p = \frac{1}{|M(p)|} \sum_{t \in M(p)} S_t
 $$
 
-The unnormalized scaled weight for each Pokémon, $U_p$, is the product of its base weight $w_p$ and its type-based scaler $\alpha_p$.
+The unnormalized scaled weight for each Pokémon, $U_p$, is the product of its base weight $w_p$ and its type-based scalar $\alpha_p$.
 
 $$
 U_p = w_p \cdot \alpha_p
