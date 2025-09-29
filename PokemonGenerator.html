@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nathan DeVore">
-<meta name="dcterms.date" content="2025-09-26">
+<meta name="dcterms.date" content="2025-09-29">
 
 <title>Intelligent Generator for Unpredictable Competitive Strategies</title>
 <style>
@@ -2391,7 +2391,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 26, 2025</p>
+      <p class="date">September 29, 2025</p>
     </div>
   </div>
   
@@ -2408,7 +2408,7 @@ window.Quarto = {
 <h1>Background</h1>
 <section id="basics-of-pokémon-battles" class="level2">
 <h2 class="anchored" data-anchor-id="basics-of-pokémon-battles">Basics of Pokémon Battles</h2>
-<p>Though seemingly silly on the surface, a lot goes into competitive Pokémon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random Pokémon is given to each player and from there, they do battle. The problem is this: Pokémon have dozens of potential attacks available to them, some much better others, and while the specific Pokémon on a team are random, their sets are not. This means that once you see a Pokémon on your or your opponent’s team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of Pokémon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a Pokémon is “Generated”, is has its set entirely randomized, however, this led to the issue where Pokémon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to scenarios where a Pokémon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.</p>
+<p>Though seemingly silly on the surface, a lot goes into competitive Pokémon battling. The two most important aspects of battling are teambuilding and piloting. To practice piloting specifically, many trainers enjoy random battles; a team of six random Pokémon is given to each player and from there, they do battle. The problem is this: Pokémon have dozens of potential attacks available to them, some much better others, and while the specific Pokémon on a team are random, their sets are not. This means that once you see a Pokémon on your or your opponent’s team, you know exactly what its stats are, its attacks are, its held item is, and its ability. Even though there are hundreds of Pokémon, after enough battles, every set will be fully known and the ability to conceal information, a crucial aspect of proper team building and piloting, is lost. There have been attempts in the past to solve this: when a Pokémon is “Generated”, it has its set entirely randomized, however, this led to the issue where Pokémon with large movepools, or attack options available to them, became completely unviable and often, dead weight. It let to scenarios where a Pokémon may only have one usable attack for the situation so skill on the part of both players was completely removed. Needless to say, this solution was not the optimal one. This project fixes this issue. Using an intelligent algorithm, varied and exciting sets can be created at the press of a button, and, every set is guaranteed to be viable.</p>
 </section>
 <section id="building-a-set" class="level2">
 <h2 class="anchored" data-anchor-id="building-a-set">Building a set</h2>
@@ -2437,7 +2437,7 @@ window.Quarto = {
 </ul></li>
 <li>Individual Values
 <ul>
-<li>Each stat can have up to 31 points added to it. However, in some scenarios, lowing a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move’s type is dependent on the chosen IVs, and in situations where moving after the opponent is beneficial to gain knowledge.</li>
+<li>Each stat can have up to 31 points added to it. However, in some scenarios, lowering a stat by not giving it the full 31 may be beneficial. Examples include Hidden Power, a move where the move’s type is dependent on the chosen IVs, and in situations where moving after the opponent is beneficial to gain knowledge.</li>
 </ul></li>
 <li>Additional considerations
 <ul>
@@ -2527,7 +2527,7 @@ window.Quarto = {
 </section>
 <section id="selecting-individual-pokémon" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-individual-pokémon">Selecting Individual Pokémon</h2>
-<p>While selecting and individual Pokémon may seem as simple as randomly grabbing one from a bag and adding it to the team, however, this has an issue: some Pokémon types are represented far more than others, for example, there are only 6 fully evolved Dragon type Pokémon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random Pokémon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type Pokémon will show up far more than any individual water type leading to a stale format where the same Pokémon seemingly show up all the time. Additionally, many Pokémon are dual type Pokémon, meaning have have two types, further complicating things. With the first solution, every Pokémon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the relative frequencies of each Pokémon is off balance. The program will solve this issue.</p>
+<p>While selecting and individual Pokémon may seem as simple as randomly grabbing one from a bag and adding it to the team, it has an issue: some Pokémon types are represented far more than others. For example, there are only 6 fully evolved Dragon type Pokémon in the fourth generation compared to 44 Water types. Because the balance of types is critical for having a balanced team, this solution will not work. Another alternative is to randomly select a type, then, from within that type, choose a random Pokémon. However, this has multiple issues. Firstly, if the Dragon type is as likely to be selected as the Water type, individual Dragon type Pokémon will show up far more than any individual water type leading to a stale format where the same Pokémon seemingly show up all the time. Additionally, many Pokémon are dual type Pokémon, meaning have have two types, further complicating things. With the first solution, every Pokémon is equally likely to show up, yet the type representation is wildly off. In the second solution, each type shows up an equal amount but the relative frequencies of each Pokémon is off balance. The program will solve this issue.</p>
 </section>
 </section>
 <section id="solution" class="level1">
@@ -2618,7 +2618,7 @@ window.Quarto = {
 <section id="special-cases" class="level3">
 <h3 class="anchored" data-anchor-id="special-cases">Special Cases</h3>
 <p>Some Pokémon must hold a certain item, or, their viability is tied to holding an item. In this case, the default implementation does not meet the specific requirements, so a <code>Strategy Pattern</code> is employed. Due to the way that ZODB (the NoSQL database used for this project) stores objects persistently (it cannot pickle instance methods directly), a very specific design pattern must be used.</p>
-<div id="a85b47e9" class="cell" data-execution_count="1">
+<div id="020bbe0a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&#39;foo&#39;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar():</span>
@@ -2654,7 +2654,7 @@ bar</code></pre>
 </section>
 <section id="pokémon-selection" class="level2">
 <h2 class="anchored" data-anchor-id="pokémon-selection">Pokémon Selection</h2>
-<p>Pokémon selection happens in two stages, first, each Pokémon is assigned a base weight. This weight is manually assigned, loosely based on the popularity and viability of a Pokémon. In general: popular Pokémon have a base weight of ~2, balanced Pokémon have a base weight of ~2, underpowered Pokémon have a base weight of 1 - 2, weak Pokémon have a base weight &lt; 1, overpowered Pokémon have a base weight &lt; 1. Then smoothing of types occurs as follows:</p>
+<p>Pokémon selection happens in two stages; first, each Pokémon is assigned a base weight. This weight is manually assigned, loosely based on the popularity and viability of a Pokémon. In general: popular Pokémon have a base weight of ~2, balanced Pokémon have a base weight of ~2, underpowered Pokémon have a base weight of 1 - 2, weak Pokémon have a base weight &lt; 1, overpowered Pokémon have a base weight &lt; 1. Then smoothing of types occurs as follows:</p>
 <section id="variable-and-set-definitions" class="level3">
 <h3 class="anchored" data-anchor-id="variable-and-set-definitions">Variable and Set Definitions</h3>
 <p>Let <span class="math inline">\(P\)</span> be the set of all Pokémon, <span class="math inline">\(p \in P\)</span>. Let <span class="math inline">\(T\)</span> be the set of all Pokémon types, <span class="math inline">\(t \in T\)</span>.</p>
@@ -2683,11 +2683,11 @@ S_t = (\tilde{R} - R_t) \cdot s + R_t \quad \forall t \in T
 </section>
 <section id="pokémon-scaled-weights" class="level3">
 <h3 class="anchored" data-anchor-id="pokémon-scaled-weights">3. Pokémon Scaled Weights</h3>
-<p>For each Pokémon <span class="math inline">\(p\)</span>, a type-based scaler, <span class="math inline">\(\alpha_p\)</span>, is calculated. This scaler is the arithmetic mean of the smoothed type weights corresponding to the Pokémon’s types.</p>
+<p>For each Pokémon <span class="math inline">\(p\)</span>, a type-based scalar, <span class="math inline">\(\alpha_p\)</span>, is calculated. This scalar is the arithmetic mean of the smoothed type weights corresponding to the Pokémon’s types.</p>
 <p><span class="math display">\[
 \alpha_p = \frac{1}{|M(p)|} \sum_{t \in M(p)} S_t
 \]</span></p>
-<p>The unnormalized scaled weight for each Pokémon, <span class="math inline">\(U_p\)</span>, is the product of its base weight <span class="math inline">\(w_p\)</span> and its type-based scaler <span class="math inline">\(\alpha_p\)</span>.</p>
+<p>The unnormalized scaled weight for each Pokémon, <span class="math inline">\(U_p\)</span>, is the product of its base weight <span class="math inline">\(w_p\)</span> and its type-based scalar <span class="math inline">\(\alpha_p\)</span>.</p>
 <p><span class="math display">\[
 U_p = w_p \cdot \alpha_p
 \]</span></p>
