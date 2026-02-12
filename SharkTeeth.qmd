@@ -8,3 +8,46 @@ format:
         toc: true
         embed-resources: true
 ---
+
+Back to Portfolio: <https://devoreni.github.io/portfolio/>
+GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
+
+# Abstract
+
+## Introduction
+
+## Problem Statement
+
+# Project Requirements
+
+## Cross Platform Access
+
+## Real World Performance
+
+## Security
+
+## Users
+
+## Availability
+
+# Solution
+
+## Object Detection
+
+### Data Collection
+
+### AWS Rekognition Custom Labels
+
+## Hosting
+
+### Render
+
+### PostgreSQL
+
+# Results
+
+## Demo
+
+# Future Work
+
+## Roboflow
