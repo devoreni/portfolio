@@ -50,6 +50,11 @@ This holistic approach to education has equipped me with a diverse and versatile
 </style>
 
 ```{=html}
+<a href="https://devoreni.github.io/portfolio/SharkTeeth" class="project-tile">
+    <img src="assets/IndexAssets/RekognitionLogo.png" alt="Shark Tooth Object Detection" class="project-image">
+    <h3 class="project-title">Shark Tooth Object Detection</h3>
+</a>
+
 <a href="https://devoreni.github.io/portfolio/PokemonGenerator" class="project-tile">
     <img src="assets/IndexAssets/RandBat.png" alt="Intelligent Generator for Competitive Strategies" class="project-image">
     <h3 class="project-title">Intelligent Generator for Competitive Strategies</h3>
