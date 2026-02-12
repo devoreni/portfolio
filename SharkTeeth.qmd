@@ -9,7 +9,7 @@ format:
         embed-resources: true
 ---
 
-Back to Portfolio: <https://devoreni.github.io/portfolio/>
+Back to Portfolio: <https://devoreni.github.io/portfolio/><br>
 GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
 
 # Abstract
@@ -45,6 +45,8 @@ GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
 ### PostgreSQL
 
 # Results
+
+## Statistics
 
 ## Demo
 
