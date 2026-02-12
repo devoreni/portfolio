@@ -87,7 +87,7 @@ The solution will meet the following verification requirements:
     - The program will run without any warnings or errors.
         - Running the program with the `-Wb` flag should never produce a warning or an error.
 
-Although the program is not safety-critical, this design desicion was made as a commitment to professional software engineering practices.
+Although the program is not safety-critical, this design decision was made as a commitment to professional software engineering practices.
 
 ## Selecting Individual Pokémon
 
