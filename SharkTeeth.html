@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nathan DeVore">
-<meta name="dcterms.date" content="2026-02-12">
+<meta name="dcterms.date" content="2026-02-16">
 
 <title>Shark Tooth Object Detection</title>
 <style>
@@ -2175,10 +2175,14 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics">Statistics</a></li>
   <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
+  <li><a href="#cost-analysis" id="toc-cost-analysis" class="nav-link" data-scroll-target="#cost-analysis">Cost Analysis</a></li>
+  <li><a href="#tools-used" id="toc-tools-used" class="nav-link" data-scroll-target="#tools-used">Tools Used</a></li>
   </ul></li>
   <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a>
   <ul class="collapse">
   <li><a href="#roboflow" id="toc-roboflow" class="nav-link" data-scroll-target="#roboflow">Roboflow</a></li>
+  <li><a href="#self-training" id="toc-self-training" class="nav-link" data-scroll-target="#self-training">Self Training</a></li>
+  <li><a href="#domain-randomization" id="toc-domain-randomization" class="nav-link" data-scroll-target="#domain-randomization">Domain Randomization</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2204,7 +2208,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2026</p>
+      <p class="date">February 16, 2026</p>
     </div>
   </div>
   
@@ -2219,6 +2223,7 @@ vertical-align: -.125em;
 <p>Back to Portfolio: <a href="https://devoreni.github.io/portfolio/" class="uri">https://devoreni.github.io/portfolio/</a><br> GitHub Project Link: <a href="https://github.com/devoreni/SharkTeethFinder" class="uri">https://github.com/devoreni/SharkTeethFinder</a></p>
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
+<p>The goal of this project was to build an end-to-end computer vision pipeline for detecting camouflaged, small, and partially obsured shark teeth. A high quality custom dataset was collected, an AWS Rekognition Custom Labels model was iteratively trained and improved, and a Flask + Render + PostgreSQL (or SQLite) website was created to serve as the front end. Extreme care was taken to ensure secret keys, access keys, and user information were never comprimised using environment variables, encryption, and modern authentication schemes. The model was measured to have an F1 score of 0.884, precision of 0.934, and recall of 0.840.</p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 </section>
@@ -2273,11 +2278,23 @@ vertical-align: -.125em;
 <section id="demo" class="level2">
 <h2 class="anchored" data-anchor-id="demo">Demo</h2>
 </section>
+<section id="cost-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="cost-analysis">Cost Analysis</h2>
+</section>
+<section id="tools-used" class="level2">
+<h2 class="anchored" data-anchor-id="tools-used">Tools Used</h2>
+</section>
 </section>
 <section id="future-work" class="level1">
 <h1>Future Work</h1>
 <section id="roboflow" class="level2">
 <h2 class="anchored" data-anchor-id="roboflow">Roboflow</h2>
+</section>
+<section id="self-training" class="level2">
+<h2 class="anchored" data-anchor-id="self-training">Self Training</h2>
+</section>
+<section id="domain-randomization" class="level2">
+<h2 class="anchored" data-anchor-id="domain-randomization">Domain Randomization</h2>
 </section>
 </section>
 

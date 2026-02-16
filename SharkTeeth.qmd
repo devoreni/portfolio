@@ -14,6 +14,8 @@ GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
 
 # Abstract
 
+The goal of this project was to build an end-to-end computer vision pipeline for detecting camouflaged, small, and partially obsured shark teeth. A high quality custom dataset was collected, an AWS Rekognition Custom Labels model was iteratively trained and improved, and a Flask + Render + PostgreSQL (or SQLite) website was created to serve as the front end. Extreme care was taken to ensure secret keys, access keys, and user information were never comprimised using environment variables, encryption, and modern authentication schemes. The model was measured to have an F1 score of 0.884, precision of 0.934, and recall of 0.840.
+
 ## Introduction
 
 ## Problem Statement
@@ -50,6 +52,15 @@ GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
 
 ## Demo
 
+## Cost Analysis
+
+## Tools Used
+
 # Future Work
 
 ## Roboflow
+
+## Self Training
+
+## Domain Randomization
+
