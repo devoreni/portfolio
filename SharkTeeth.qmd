@@ -18,7 +18,13 @@ The goal of this project was to build an end-to-end computer vision pipeline for
 
 ## Introduction
 
+Hunting for shark teeth in places where they can be found in abundance is still a very difficult task. Shark teeth are often small, camouflaged, partially obscured, broken, and surrounded by rocks and pebbles of similar size and color. On a first expedition, one would be considered particularly talented or lucky if they were to find more than a couple of teeth in an entire day. While it is extremely challenging, with enough practice, some individuals are able to quickly and consistantly spot teeth, meaning that it is theoretically possible to train a computer vision neural network to identify and locate them in the sand.
+
+![One Tooth in Each Picture](/assets/SharkTeethAssets/TeethHiddenInSieve.jpg)
+
 ## Problem Statement
+
+Object detection for small or partially obscured objects is a notoriously difficult problem in computer vision. This project will provide a solution to the specific domain of identifying shark teeth where they can be naturally found. 
 
 # Project Requirements
 
