@@ -28,15 +28,18 @@ Object detection for small or partially obscured objects is a notoriously diffic
 
 # Project Requirements
 
-## Cross Platform Access
-
-## Real World Performance
-
-## Security
-
-## Users
-
-## Availability
+- Cross Platform Access
+    - The model should be available anywhere and from any device. A mobile device or any laptop should be able to use the model effectively as long as there is internet access.
+- Real World Performance
+    - The model should out perform an inexperianced shark tooth hunter.
+- Security
+    - Access to the model should be limited to authorized personnel only.
+        - Access and Secret keys should remain hidden at all points of the project, including development.
+    - User passwords should be fully encrypted.
+- Users
+    - Personnel should be authenticated before they can be allowed to use the model.
+- Availability
+    - Anyone should be able to pull the code and be able to use their own resources to run everything.
 
 # Solution
 
