@@ -233,9 +233,9 @@ Users navigate to the site, log in with their credentials, and are presented wit
 
 ## Cost Analysis
 
-The total cost for this project was $1.28.
-
 AWS Rekognition Custom Labels charges per inference hour — the model must be running to accept requests, and a running model accrues cost regardless of whether it is actively processing images. As the scope of real-world testing expanded, projected monthly costs grew to a point where further development could not be justified without a more deliberate cost management strategy. This was the primary reason the project was paused at its current state.
+
+The total cost for this project was $1.28.
 
 
 
