@@ -14,7 +14,7 @@ GitHub Project Link: <https://github.com/devoreni/SharkTeethFinder>
 
 # Background
 
-Hunting for shark teeth in places where they can be found in abundance is still a surprisingly difficult task. Shark teeth are often small, camouflaged, partially obscured, broken, and surrounded by rocks and pebbles of similar size and color. On a first expedition to such a site, one would be considered particularly talented or lucky to find more than a couple of teeth in an entire day. While extraordinarily challenging for the uninitiated, with enough practice some individuals are able to quickly and consistently spot teeth, meaning it is theoretically possible to train a computer vision model to identify and locate them in the sand.
+Hunting for shark teeth even in places where they can be found in abundance is still a surprisingly difficult task. Shark teeth are often small, camouflaged, partially obscured, broken, and surrounded by rocks and pebbles of similar size and color. On a first expedition to such a site, one would be considered particularly talented or lucky to find more than a couple of teeth in an entire day. While extraordinarily challenging for the uninitiated, with enough practice some individuals are able to quickly and consistently spot teeth, meaning it is theoretically possible to train a computer vision model to identify and locate them in the sand.
 
 ![One Tooth in Each Picture](assets/SharkTeethAssets/TeethHiddenInSieve.jpg)
 
@@ -27,7 +27,7 @@ The solution was required to meet the following criteria:
 - Cross-Platform Accessibility
     - The model must be available from any device (a phone at the beach, a laptop at home, etc.) as long as internet access is available.
 - Real-World Performance
-    - The model must outperform an inexperienced shark tooth hunter in the field.
+    - The model must match or outperform an inexperienced shark tooth hunter in the field.
 - Security
     - Access to the model must be limited to authorized personnel.
     - AWS access and secret keys must never be exposed at any point, including during development.
@@ -55,11 +55,11 @@ Three models were trained in succession, each informed by the shortcomings of th
 
 **Model 1** was trained on an initial dataset and produced poor results across the board. It struggled to reliably distinguish teeth from the surrounding debris.
 
-**Model 2** was trained on a significantly expanded dataset. It had strong metrics and could locate shark teeth in photos where the tooth was obvious, but it still failed in real-world testing. Neither the testing, nor training images were representative of how a user would actually take a photo in the field.
+**Model 2** was trained on a significantly expanded dataset. It had strong metrics and could locate shark teeth in photos where the tooth was obvious or somewhat hidden, but it still failed in real-world testing. Neither the testing, nor training images were representative of how a user would actually take a photo in the field.
 
 **Model 3** shifted focus toward real-world conditions, heavily emphasizing photos taken as a user would naturally take them at the site. With the testing images replaced with real-world images, the aggregate metrics were significantly worse than Model 2, but real-world performance improved meaningfully, performing about as well as a novice.
 
-This iterative process highlighted a fundamental lesson in applied machine learning: a model that performs well on a held-out test set is not guaranteed to perform well in deployment if the test set does not faithfully represent the deployment environment.
+This iterative process highlighted two fundamental lessons in applied machine learning: a model that performs well on a held-out test set is not guaranteed to perform well in deployment if the test set does not faithfully represent the deployment environment; and, the training images must be high quality and representative of the actual use case - garbage in, garbage out.
 
 ## Web Application
 
@@ -221,9 +221,9 @@ Because the application is fully driven by environment variables and the databas
 
 # Results
 
-## Model Performance
-
-
+The final iteration of the model achieved performance comparable to that of an untrained human - and while it fell short of the original goal to surpass one, this outcome is still considered a success. Though statistical metrics were collected, they are not featured prominently here; the benchmark performance and field performance diverge significantly, and presenting a headline F1 score without that context obfuscates the model's real-world utility.
+The web application is considered fully successful. The codebase adheres to the principles of low coupling and high cohesion: the vision pipeline does not care which Rekognition model or target class is used, and the application does not care whether it is talking to PostgreSQL or SQLite. As a direct consequence of this design, the application is currently configured to use base AWS Rekognition and to detect zebras. This is intentional as an operator cloning the repository to run the system for themselves would not have access to this Custom Labels model and would need to copy the model to their own AWS account using the CopyProjecctVersion operation. Setting a clearly incorrect target class makes it immediately obvious to any operator that two values need to be changed: the Rekognition endpoint and the target class. "Shark Tooth" is not a label in base Rekognition so that also needs to be changed.
+From a security standpoint, no secret keys, AWS credentials, or environment variables were exposed at any point in the project's history, including during active development. Significant preparation was done prior to the first commit to establish this guarantee from the outset. User passwords are stored as Argon2 hashes with a server-side pepper, meaning a database breach alone is insufficient to recover credentials. Additionally, administrative operations require a two-factor credential.
 
 ## Demo
 
@@ -231,12 +231,15 @@ Users navigate to the site, log in with their credentials, and are presented wit
 
 ![Flow Chart for Web App](assets/SharkTeethAssets/AppFlowChart.jpg)
 
-## Cost Analysis
+## Cost Analysis and Timeline
 
-AWS Rekognition Custom Labels charges per inference hour — the model must be running to accept requests, and a running model accrues cost regardless of whether it is actively processing images. As the scope of real-world testing expanded, projected monthly costs grew to a point where further development could not be justified without a more deliberate cost management strategy. This was the primary reason the project was paused at its current state.
+The AWS free tier provides enough credits to train one model per month. Given that iterative training was central to this project's development approach, this constraint shaped the timeline directly: the first model was trained at the end of month one, the second at the start of month two, and the third at the start of month three, with additional data collection, labeling, and the web application built in between.
 
-The total cost for this project was $1.28.
+The more pressing cost concern was inference. AWS Rekognition Custom Labels charges per inference hour — the model accrues cost while the endpoint is active, regardless of whether it is actively processing images. As real-world testing expanded, projected monthly costs and downtime waiting for credits to refresh grew to a point where continued development could not be justified as the project had already reached a meaningful stopping place.
 
+Alternatives were explored but none were a clear improvement. Roboflow offers free credits, though they do not stretch nearly as far as AWS. It also exposes hyperparameters that Rekognition optimizes automatically, adding complexity without an obvious benefit in return. Roboflow does support negative images whereas Rekognition simply ignores unlabeled images, which is a meaningful distinction. That advantage alone, however, was not enough to justify the switch. Training and hosting a model on owned hardware was also considered, but rising GPU and RAM prices made this option inaccessible.
+
+The project was paused at its current state for these reasons. The total cost incurred was **$1.28**.
 
 
 # Tools Used
@@ -263,7 +266,7 @@ SQLAlchemy's ORM is used for all database interactions. Defining models as Pytho
 
 ## OpenCV and Pillow
 
-OpenCV is used for image decoding, bounding box annotation, and re-encoding. Pillow, supplemented by `pillow_heif`, handles HEIC decoding. Together they ensure that images captured on any modern device — including iPhones using the HEIC format — can be processed without requiring the user to convert them beforehand.
+OpenCV is used for image decoding, bounding box annotation, and re-encoding. Pillow, supplemented by `pillow_heif`, handles HEIC decoding. Together they ensure that images captured on any modern device, including iPhones using the HEIC format, can be processed without requiring the user to convert them beforehand.
 
 ## Render
 
