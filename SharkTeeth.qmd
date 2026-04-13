@@ -111,7 +111,7 @@ def hash_credentials(p1, p2=''):
 
 ### Two-Factor Admin Credentials
 
-Admin accounts use a two-password credential scheme. When an admin authenticates during the creation of a new user, both a primary password and a secondary password are required. Both values are combined with the pepper before hashing. This provides a second factor of authentication for privileged operations entirely within the application's own logic, with no dependency on external services. On submission of incorrect credentials, `sleep(2)` prevents attackers from spamming password guesses.
+Admin accounts use a two-password credential scheme. When an admin authenticates during the creation of a new user, both a primary password and a secondary password are required. Both values are combined with the pepper before hashing. This provides a second factor of authentication for privileged operations entirely within the application's own logic, with no dependency on external services. On submission of incorrect credentials, `sleep(2)` slows down brute-force password guess attempts.
 
 ```python
 def verify_credentials(hashed, p1, p2=''):
