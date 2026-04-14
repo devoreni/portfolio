@@ -290,10 +290,6 @@ AWS Rekognition Custom Labels abstracts away the training infrastructure but at 
 
 Roboflow provides a managed computer vision platform with annotation tools, dataset versioning, and model training. The cost structure was prohibitive for this project given the available budget, but with a larger and more carefully curated dataset, the per-image annotation and training costs could be justified by the improvement in model quality and iteration speed.
 
-## Cost Management
-
-
-
 ## Domain Expansion
 
-
+The current model was trained exclusively on teeth and surroundings from a single location. It may not transfer well to sites with differently colored or textured sand, different rock compositions, or teeth from different species. Expanding the dataset to cover multiple locations would make the tool useful to shark tooth hunters broadly, rather than being tailored to one specific site.
